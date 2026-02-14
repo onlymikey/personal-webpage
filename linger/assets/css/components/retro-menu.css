@@ -1,0 +1,151 @@
+/* retro-menu.css — airy sidebar menu (no boxes, no pills) */
+
+.retro-menu{
+  font-size: 0.95rem;
+  color: var(--c-ink);
+}
+
+/* title bars ONLY */
+.retro-menu__title{
+  margin: 0 0 4px 0;
+  padding: 6px 8px;
+
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+
+  background: var(--c-accent-2);
+  color: var(--c-ink);
+
+  border: var(--stitch);
+  border-bottom: var(--stitch);
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.retro-menu__title + .retro-menu__link,
+.retro-menu__title + .retro-menu__group {
+  margin-top: 0;
+}
+
+.retro-menu__group + .retro-menu__title,
+.retro-menu__link + .retro-menu__title {
+  margin-top: 22px; /* ajusta a gusto */
+}
+
+
+/* shared “indent” so dotted separators don't hit edges */
+.retro-menu__link,
+.retro-menu__summary,
+.retro-menu__items{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* top-level links */
+.retro-menu__link{
+  display: block;
+  padding-top: 4px;   
+  padding-bottom: 4px;
+  color: var(--c-ink);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+
+/* dotted separators between items (NOT touching edges) */
+.retro-menu__link,
+.retro-menu__group{
+  position: relative;
+}
+
+.retro-menu__link::after,
+.retro-menu__group::after{
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 0;
+  border-bottom: 1px dashed var(--c-line);
+}
+
+.retro-menu__link:last-of-type::after,
+.retro-menu__group:last-of-type::after{
+  display: none;
+}
+
+/* expandable groups */
+.retro-menu__group{
+  padding-bottom: 2px;
+}
+
+.retro-menu__summary{
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+
+  padding-top: 4px;    
+  padding-bottom: 4px;
+
+  font-weight: 800;
+  color: var(--c-ink-2);
+
+  display: flex;
+  align-items: center;
+  gap: 6px;            
+}
+
+
+.retro-menu__summary::-webkit-details-marker{
+  display: none;
+}
+
+/* triangle marker */
+.retro-menu__summary::before{
+  content: "▶";
+  font-size: 0.85rem;  
+  opacity: 0.85;
+  transform: translateY(-0.5px);
+}
+
+.retro-menu__group[open] > .retro-menu__summary::before{
+  content: "▼";
+}
+
+/* sub items */
+.retro-menu__items{
+  padding-top: 1px;     
+  padding-bottom: 6px;  
+  padding-left: 26px;   
+}
+
+.retro-menu__sublink{
+  display: block;
+  padding: 3px 0;       
+  color: var(--c-ink);
+  text-decoration: none;
+  font-weight: 650;
+  position: relative;
+}
+
+
+.retro-menu__sublink::before{
+  content: "*";
+  position: absolute;
+  left: -14px;
+  opacity: 0.7;
+}
+
+.retro-menu__sublink:hover,
+.retro-menu__link:hover{
+  text-decoration: underline;
+}
+
+/* badge */
+.retro-menu__new{
+  font-weight: 900;
+  font-size: 0.8rem;
+  opacity: 0.85;
+}

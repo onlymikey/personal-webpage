@@ -1,0 +1,62 @@
+/* tokens.css — theme tokens only */
+
+:root{
+  --c-ink: #132A13;
+  --c-ink-2: #31572C;
+  --c-accent: #4F772D;
+  --c-accent-2: #90A955;
+
+  --c-bg: #F6FAD0;
+  --c-paper: #ECF39E;
+  --c-paper-2: #E3ED9B;
+  --c-sidebar: #D2E17C;
+
+  --c-line: rgba(19, 42, 19, 0.22);
+  --c-line-2: rgba(19, 42, 19, 0.12);
+
+  --radius: 14px;
+  --sheet-max: 1100px;
+
+  --shadow: 0 10px 24px rgba(19, 42, 19, 0.10);
+
+  --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+
+  --stitch: 2px dashed rgba(19, 42, 19, 0.22);
+  --rule: 1px solid rgba(19, 42, 19, 0.18);
+
+  --focus: 3px solid rgba(79, 119, 45, 0.55);
+
+  --c-stitch: rgba(40, 70, 40, 0.65);      
+  --stitch: 1px dashed var(--c-stitch);    
+
+  --menu-stitch: 2px dashed rgba(19, 42, 19, 0.45);
+
+}
+
+/* Dark theme */
+body.theme-dark{
+  --c-ink: #EAF3D2;
+  --c-ink-2: #CFE2B2;
+  --c-accent: #B6E26B;
+  --c-accent-2: #8DBB4F;
+
+  --c-bg: #0E1A10;
+  --c-paper: #132A13;
+  --c-paper-2: #163116;
+  --c-sidebar: #1B3A1B;
+
+  --c-line: rgba(234, 243, 210, 0.20);
+  --c-line-2: rgba(234, 243, 210, 0.10);
+
+  --shadow: 0 10px 24px rgba(0,0,0,0.45);
+  --stitch: 2px dashed rgba(234, 243, 210, 0.18);
+  --rule: 1px solid rgba(234, 243, 210, 0.14);
+
+  --focus: 3px solid rgba(182, 226, 107, 0.55);
+  --c-stitch: rgba(234, 243, 210, 0.50);
+  --stitch: 1px dashed var(--c-stitch);
+
+
+  --menu-stitch: 2px dashed rgba(234, 243, 210, 0.35);
+
+}

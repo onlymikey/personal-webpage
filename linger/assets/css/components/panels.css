@@ -1,0 +1,15 @@
+/* panels.css — typography blocks inside main */
+
+.panel{
+  margin: 0;
+}
+
+.panel h2{
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+}
+
+.panel p{
+  margin: 0;
+  max-width: 62ch;
+}

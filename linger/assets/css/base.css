@@ -1,0 +1,25 @@
+/* base.css — reset + global element rules */
+
+*{ box-sizing: border-box; }
+html,body{ height: 100%; }
+
+body{
+  margin: 0;
+  font-family: var(--font);
+  color: var(--c-ink);
+  background: var(--c-bg);
+  line-height: 1.45;
+}
+
+a{
+  color: var(--c-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+a:hover{ text-decoration: underline; }
+
+a:focus-visible{
+  outline: var(--focus);
+  outline-offset: 2px;
+  border-radius: 10px;
+}

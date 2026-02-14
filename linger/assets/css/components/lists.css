@@ -1,0 +1,7 @@
+/* lists.css — small utility lists */
+
+.mini-list{
+  margin: 0;
+  padding-left: 18px;
+  font-size: .92rem;
+}

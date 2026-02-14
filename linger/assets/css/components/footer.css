@@ -1,0 +1,17 @@
+/* footer.css — footer outside notebook */
+
+.site-footer{
+  display: flex;
+  justify-content: center;
+  padding: 10px 0 24px;
+}
+
+.site-footer__pill{
+  background: var(--c-paper);
+  border: 2px solid var(--c-line);
+  border-radius: 999px;
+  padding: 8px 14px;
+  box-shadow: 0 8px 18px rgba(19,42,19,0.10);
+  font-size: .9rem;
+  color: rgba(19,42,19,0.75);
+}

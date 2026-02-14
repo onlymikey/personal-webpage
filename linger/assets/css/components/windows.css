@@ -1,0 +1,20 @@
+/* windows.css — window primitives */
+.window{
+  background: var(--c-paper-2);
+  border: var(--stitch);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 6px 14px rgba(19,42,19,0.06);
+}
+
+
+.window h3{
+  margin: 0 0 10px;
+  font-size: .95rem;
+}
+
+/* used earlier when footer was inside; keep if you still use it anywhere */
+.window--footer{
+  padding: 8px 14px;
+  border-radius: 999px;
+}
