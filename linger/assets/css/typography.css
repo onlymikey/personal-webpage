@@ -8,6 +8,11 @@
   src: url('../fonts/alagard.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Silkscreen';
+  src: url('../fonts/Silkscreen.ttf') format('truetype');
+}
+
 /* UI / navegación / pequeños elementos */
 .retro-menu,
 .retro-menu__title,
@@ -37,3 +42,11 @@
   text-transform: uppercase;
 }
 
+.retro-menu__sublink::before{
+  content: "*";
+  font-family: var(--font-pixel);
+}
+
+.site-footer__pill .sym{
+  font-family: var(--font-pixel);
+}

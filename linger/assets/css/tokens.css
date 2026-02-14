@@ -31,7 +31,8 @@
 
   --menu-stitch: 2px dashed rgba(19, 42, 19, 0.45);
 
-  --font-ui: 'Pixelify Sans', monospace;
+  --font-ui: 'Pixelify Sans', "Silkscreen", monospace;
+  --font-pixel: "Silkscreen", monospace;
   --font-display: 'Alagard', serif;
 
 
