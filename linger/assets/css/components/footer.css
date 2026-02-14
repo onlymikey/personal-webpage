@@ -15,3 +15,8 @@
   font-size: .9rem;
   color: rgba(19,42,19,0.75);
 }
+
+.site-footer__symbol{
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 1.1em;
+}
