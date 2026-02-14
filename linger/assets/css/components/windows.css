@@ -2,7 +2,6 @@
 .window{
   background: var(--c-paper-2);
   border: var(--stitch);
-  border-radius: 14px;
   padding: 14px;
   box-shadow: 0 6px 14px rgba(19,42,19,0.06);
 }
@@ -17,4 +16,56 @@
 .window--footer{
   padding: 8px 14px;
   border-radius: 999px;
+}
+
+/* widget frame */
+.widget{
+  border: 1px dashed var(--c-stitch);
+  padding: 12px 12px 10px;
+  background: var(--c-sidebar); 
+  margin: 0;
+  min-inline-size: 0;
+  
+}
+
+/* the “label” that sits on the border */
+.widget__title{
+  position: relative;
+  top: -3px;                
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 0 6px;           
+  margin-left: 8px;
+
+  font-family: var(--font-ui);
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.2px;
+
+  background: var(--c-sidebar); 
+}
+
+
+/* icon style */
+.widget__icon{
+  width: 14px;
+  height: 14px;
+  image-rendering: pixelated;
+  translate: 0 -0.5px;
+}
+
+/* optional action button */
+.widget__action{
+  margin-left: 6px;
+  font-size: 0.9em;
+  opacity: 0.85;
+  text-decoration: none;
+}
+.widget__action:hover{ text-decoration: underline; }
+
+/* body spacing */
+.widget__body{
+  padding-top: 6px;
 }

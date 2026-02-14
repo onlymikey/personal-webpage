@@ -29,20 +29,9 @@
               <summary class="retro-menu__summary">projects</summary>
               <div class="retro-menu__items">
                 <a class="retro-menu__sublink" href="/projects">index</a>
-                <a class="retro-menu__sublink" href="/projects/auto-park"
-                  >auto-park</a
-                >
-                <a
-                  class="retro-menu__sublink"
-                  href="/projects/hyprwinwrap-toggle"
-                  >hyprwinwrap-toggle</a
-                >
-                <a
-                  class="retro-menu__sublink"
-                  href="/projects/movimiento-cucei"
-                >
-                  web movimiento CUCEI
-                </a>
+                <a class="retro-menu__sublink" href="/projects/auto-park">auto-park</a>
+                <a class="retro-menu__sublink" href="/projects/hyprwinwrap-toggle">hyprwinwrap-toggle</a>
+                <a class="retro-menu__sublink" href="/projects/movimiento-cucei">web movimiento CUCEI</a>
               </div>
             </details>
 
@@ -50,9 +39,7 @@
               <summary class="retro-menu__summary">music</summary>
               <div class="retro-menu__items">
                 <a class="retro-menu__sublink" href="/music">playlists</a>
-                <a class="retro-menu__sublink" href="/music/recs"
-                  >recommendations</a
-                >
+                <a class="retro-menu__sublink" href="/music/recs">recommendations</a>
               </div>
             </details>
 
@@ -69,9 +56,7 @@
               <div class="retro-menu__items">
                 <a class="retro-menu__sublink" href="/contact">contact</a>
                 <a class="retro-menu__sublink" href="/cv">cv</a>
-                <a class="retro-menu__sublink" href="https://github.com/"
-                  >github</a
-                >
+                <a class="retro-menu__sublink" href="https://github.com/">github</a>
               </div>
             </details>
 
@@ -80,11 +65,18 @@
             <a class="retro-menu__link" href="/rss">rss</a>
           </nav>
 
-          <!-- Ejemplo de “ventana” dentro sidebar -->
-          <section class="window">
-            <h3>Changelog</h3>
-            <p>2026-02-13 — first commit</p>
-          </section>
+          <!-- Widget con “title sobre el punteado” (fieldset/legend) -->
+          <fieldset class="widget window" aria-label="Changelog widget">
+            <legend class="widget__title">
+              <img class="widget__icon" src="assets/icons/changelog.png" alt="" aria-hidden="true" />
+              Changelog
+              <a class="widget__action" href="/changelog" aria-label="Open changelog">↗</a>
+            </legend>
+
+            <div class="widget__body">
+              <p>2026-02-13 — first commit</p>
+            </div>
+          </fieldset>
         </aside>
 
         <main class="main">
@@ -105,22 +97,37 @@
         </main>
 
         <aside class="sidebar sidebar-right">
-          <section class="window">
-            <h3>status</h3>
-            <p>coding + café</p>
-          </section>
+          <!-- Widget con “title sobre el punteado” -->
+          <fieldset class="widget window" aria-label="Status widget">
+            <legend class="widget__title">
+              <img class="widget__icon" src="assets/icons/status.png" alt="" aria-hidden="true" />
+              status
+            </legend>
 
-          <section class="window">
-            <h3>links</h3>
-            <ul class="mini-list">
-              <li><a href="#">guestbook</a></li>
-              <li><a href="#">neocities</a></li>
-              <li><a href="#">rss</a></li>
-            </ul>
-          </section>
+            <div class="widget__body">
+              <p>coding + café</p>
+            </div>
+          </fieldset>
+
+          <!-- Widget con “title sobre el punteado” -->
+          <fieldset class="widget window" aria-label="Links widget">
+            <legend class="widget__title">
+              <img class="widget__icon" src="assets/icons/links.png" alt="" aria-hidden="true" />
+              links
+            </legend>
+
+            <div class="widget__body">
+              <ul class="mini-list">
+                <li><a href="#">guestbook</a></li>
+                <li><a href="#">neocities</a></li>
+                <li><a href="#">rss</a></li>
+              </ul>
+            </div>
+          </fieldset>
         </aside>
       </div>
     </div>
+
     <footer class="site-footer">
       <div class="site-footer__pill">
         <span class="sym">©</span> Mikey Musso

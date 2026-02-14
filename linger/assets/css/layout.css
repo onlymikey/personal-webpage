@@ -4,7 +4,7 @@
   width: min(var(--sheet-max), calc(100% - 44px));
   margin: 22px auto 14px;
   background: var(--c-paper);
-  border: 2px solid var(--c-line);
+  border: 2px dotted var(--c-line);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   overflow: hidden;

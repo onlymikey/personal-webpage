@@ -31,7 +31,7 @@
 .main h1,
 .main h2 {
   font-family: var(--font-display);
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
 }
 
 .main p {
