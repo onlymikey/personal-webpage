@@ -31,6 +31,11 @@
 
   --menu-stitch: 2px dashed rgba(19, 42, 19, 0.45);
 
+  --font-ui: 'Silkscreen', monospace;
+  --font-display: 'Alagard', serif;
+  --ui-size: 0.82rem;
+
+
 }
 
 /* Dark theme */

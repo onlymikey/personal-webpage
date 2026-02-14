@@ -1,5 +1,16 @@
 /* base.css — reset + global element rules */
 
+/* Font faces */
+@font-face {
+  font-family: 'Silkscreen';
+  src: url('../fonts/Silkscreen.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Alagard';
+  src: url('../fonts/alagard.ttf') format('truetype');
+}
+
 *{ box-sizing: border-box; }
 html,body{ height: 100%; }
 

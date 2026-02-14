@@ -12,7 +12,7 @@
 
   font-weight: 900;
   letter-spacing: 0.8px;
-  text-transform: uppercase;
+  text-transform: none;
 
   background: var(--c-accent-2);
   color: var(--c-ink);

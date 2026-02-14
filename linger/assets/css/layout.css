@@ -7,7 +7,7 @@
   border: 2px solid var(--c-line);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  overflow: hidden; /* clave para que las columnas recorten al borde */
+  overflow: hidden;
 }
 
 
@@ -45,7 +45,7 @@
 .content-grid{
   display: grid;
   grid-template-columns: 240px 1fr 240px;
-  min-height: 420px; /* opcional: da presencia */
+  min-height: 420px; 
 }
 
 .main-inner{
@@ -54,3 +54,5 @@
   flex-direction: column;
   gap: 10px;
 }
+
+

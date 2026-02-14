@@ -4,6 +4,7 @@
 @import url("./css/layout.css");
 @import url("./css/components.css");
 @import url("./css/responsive.css");
+@import url('./css/typography.css');
 
 /* components.css se importa después de layout.css para que los estilos de los componentes puedan sobrescribir a los de layout si es necesario */
 

@@ -1,0 +1,30 @@
+
+/* UI / navegación / pequeños elementos */
+.retro-menu,
+.retro-menu__title,
+.retro-menu__link,
+.retro-menu__summary,
+.retro-menu__sublink,
+.window h3,
+.site-footer,
+.window p,
+.window ul {
+  font-family: var(--font-ui);
+  font-size: var(--ui-size);
+  line-height: 1.4;
+}
+
+.main h1,
+.main h2 {
+  font-family: var(--font-display);
+  letter-spacing: 0.5px;
+}
+
+.main p {
+  letter-spacing: 0.5px;
+}
+
+.retro-menu__title{
+  text-transform: uppercase;
+}
+
