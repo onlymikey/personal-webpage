@@ -83,3 +83,40 @@
   width: 100%;
   accent-color: var(--c-ink-2);
 }
+
+.music-player__volume{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+  align-items: center;
+}
+
+.music-player__volume-btn{
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.music-player__volume-btn:hover{
+  opacity: 0.85;
+}
+
+.music-player__volume-img{
+  width: 20px;
+  height: 20px;
+  image-rendering: auto;
+}
+
+.mp-range--volume{
+  writing-mode: bt-lr;
+  width: 50px;
+  height: 6px;
+  accent-color: var(--c-ink-2);
+  cursor: pointer;
+}

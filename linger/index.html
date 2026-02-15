@@ -79,10 +79,10 @@
             <a class="retro-menu__link" href="/rss">rss</a>
           </nav>
 
-          <!-- Widget player -->
+          <!-- Widget music player -->
           <fieldset class="widget window music-player" id="music-player" aria-label="music player">
             <legend class="widget__title">
-              <img class="widget__icon" src="assets/icons/music.png" alt="" />
+              <img class="widget__icon is-floaty" src="assets/icons/music.png" alt="" />
               now playing!
             </legend>
 
@@ -112,6 +112,13 @@
       <span class="music-player__time" data-mp-cur>0:00</span>
       <input class="mp-range" data-mp-seek type="range" min="0" max="100" value="0" step="0.1" aria-label="seek" />
       <span class="music-player__time" data-mp-dur>0:00</span>
+    </div>
+
+    <div class="music-player__volume">
+      <button class="music-player__volume-btn" data-mp-mute-btn type="button" aria-label="toggle mute">
+        <img class="music-player__volume-img" data-mp-volume-icon src="assets/icons/volume.png" alt="" />
+      </button>
+      <input class="mp-range mp-range--volume" data-mp-volume type="range" min="0" max="100" value="20" step="1" aria-label="volume" />
     </div>
 
     <!-- IMPORTANT: no autoplay -->

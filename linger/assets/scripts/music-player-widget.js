@@ -1,3 +1,26 @@
+// ===== MOCK PLAYER (TODO: remove after testing) =====
+const MOCK_PLAYER = true;
+let mockCurrentIndex = 0;
+
+const MOCK_QUEUE = [
+  {
+    title: "Hollywood Baby",
+    artist: "100 gecs",
+    cover: "assets/mock/covers/hollywood-baby.png",
+    audio: "assets/mock/audio/hollywood-baby.mp3",
+    duration: 45,
+  },
+  {
+    title: "Safe and Sound",
+    artist: "Capital Cities",
+    cover: "assets/mock/covers/safe-and-sound.png",
+    audio: "assets/mock/audio/safe-and-sound.mp3",
+    duration: 52,
+  },
+];
+
+// ===== END MOCK PLAYER =====
+
 function formatTime(sec) {
   if (!Number.isFinite(sec) || sec < 0) return "0:00";
   const m = Math.floor(sec / 60);
@@ -6,6 +29,40 @@ function formatTime(sec) {
 }
 
 async function fetchTrack(url, opts = {}) {
+  if (MOCK_PLAYER) {
+    // Mock implementation
+    await new Promise(r => setTimeout(r, 100)); // simulate network delay
+    
+    if (url.includes("/now")) {
+      const track = MOCK_QUEUE[mockCurrentIndex];
+      return {
+        ...track,
+        canPrev: mockCurrentIndex > 0,
+        canNext: mockCurrentIndex < MOCK_QUEUE.length - 1,
+      };
+    }
+    
+    if (url.includes("/next")) {
+      if (mockCurrentIndex < MOCK_QUEUE.length - 1) mockCurrentIndex++;
+      const track = MOCK_QUEUE[mockCurrentIndex];
+      return {
+        ...track,
+        canPrev: mockCurrentIndex > 0,
+        canNext: mockCurrentIndex < MOCK_QUEUE.length - 1,
+      };
+    }
+    
+    if (url.includes("/prev")) {
+      if (mockCurrentIndex > 0) mockCurrentIndex--;
+      const track = MOCK_QUEUE[mockCurrentIndex];
+      return {
+        ...track,
+        canPrev: mockCurrentIndex > 0,
+        canNext: mockCurrentIndex < MOCK_QUEUE.length - 1,
+      };
+    }
+  }
+  
   const res = await fetch(url, { credentials: "include", ...opts });
   if (!res.ok) throw new Error(`music fetch failed: ${res.status}`);
   return await res.json();
@@ -25,8 +82,12 @@ function initMusicPlayerWidget() {
   const tCur = root.querySelector("[data-mp-cur]");
   const tDur = root.querySelector("[data-mp-dur]");
   const audio = root.querySelector("[data-mp-audio]");
+  const volumeRange = root.querySelector("[data-mp-volume]");
+  const volumeBtn = root.querySelector("[data-mp-mute-btn]");
+  const volumeIcon = root.querySelector("[data-mp-volume-icon]");
 
   let seeking = false;
+  let previousVolume = 0.6;
 
   function applyTrack(track) {
     elTitle.textContent = track?.title ?? "—";
@@ -81,6 +142,8 @@ function initMusicPlayerWidget() {
     try {
       const track = await fetchTrack("/api/music/next", { method: "POST" });
       applyTrack(track);
+      await audio.play();
+      btnPlay.textContent = "⏸";
     } catch {}
   });
 
@@ -88,6 +151,8 @@ function initMusicPlayerWidget() {
     try {
       const track = await fetchTrack("/api/music/prev", { method: "POST" });
       applyTrack(track);
+      await audio.play();
+      btnPlay.textContent = "⏸";
     } catch {}
   });
 
@@ -115,6 +180,38 @@ function initMusicPlayerWidget() {
     if (audio.duration && Number.isFinite(pct)) audio.currentTime = pct * audio.duration;
     seeking = false;
   });
+
+  volumeRange.addEventListener("input", () => {
+    const newVolume = Number(volumeRange.value) / 100;
+    audio.volume = newVolume;
+    if (newVolume > 0) previousVolume = newVolume;
+    updateVolumeIcon();
+  });
+
+  volumeBtn.addEventListener("click", () => {
+    if (audio.volume > 0) {
+      previousVolume = audio.volume;
+      audio.volume = 0;
+      volumeRange.value = "0";
+    } else {
+      audio.volume = previousVolume;
+      volumeRange.value = String(previousVolume * 100);
+    }
+    updateVolumeIcon();
+  });
+
+  function updateVolumeIcon() {
+    if (audio.volume === 0) {
+      volumeIcon.src = "assets/icons/mute.png";
+    } else {
+      volumeIcon.src = "assets/icons/volume.png";
+    }
+  }
+
+  // Initialize volume to 20%
+  audio.volume = 0.2;
+  previousVolume = 0.2;
+  updateVolumeIcon();
 
   loadNow();
 }
