@@ -127,8 +127,10 @@ function initMusicPlayerWidget() {
     try {
       if (audio.paused) {
         await audio.play(); // user gesture -> ok
+        audio.dataset.userPaused = "0";
         btnPlay.textContent = "⏸";
       } else {
+        audio.dataset.userPaused = "1";
         audio.pause();
         btnPlay.textContent = "▶";
       }
@@ -142,6 +144,7 @@ function initMusicPlayerWidget() {
     try {
       const track = await fetchTrack("/api/music/next", { method: "POST" });
       applyTrack(track);
+      audio.dataset.userPaused = "0";
       await audio.play();
       btnPlay.textContent = "⏸";
     } catch {}
@@ -151,6 +154,7 @@ function initMusicPlayerWidget() {
     try {
       const track = await fetchTrack("/api/music/prev", { method: "POST" });
       applyTrack(track);
+      audio.dataset.userPaused = "0";
       await audio.play();
       btnPlay.textContent = "⏸";
     } catch {}
@@ -167,8 +171,16 @@ function initMusicPlayerWidget() {
     range.value = String(pct);
   });
 
-  audio.addEventListener("ended", () => {
-    btnPlay.textContent = "▶";
+  audio.addEventListener("ended", async () => {
+    try {
+      const track = await fetchTrack("/api/music/next", { method: "POST" });
+      applyTrack(track);
+      audio.dataset.userPaused = "0";
+      await audio.play();
+      btnPlay.textContent = "⏸";
+    } catch {
+      btnPlay.textContent = "▶";
+    }
   });
 
   range.addEventListener("input", () => {

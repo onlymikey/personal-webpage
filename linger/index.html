@@ -10,6 +10,7 @@
     <script defer src="assets/scripts/currently-widget.js"></script>
     <script defer src="assets/scripts/poll-widget.js"></script>
     <script defer src="assets/scripts/music-player-widget.js"></script>
+    <script defer src="assets/scripts/visualizer-widget.js"></script>
   </head>
 
   <body>
@@ -123,6 +124,19 @@
 
     <!-- IMPORTANT: no autoplay -->
     <audio data-mp-audio preload="metadata"></audio>
+            </div>
+          </fieldset>
+
+
+          <!-- Widget visualizer -->
+          <fieldset class="widget window music-visualizer" id="music-visualizer" aria-label="music visualizer" style="display: none;">
+            <legend class="widget__title">
+              <img class="widget__icon is-floaty" src="assets/icons/music.png" alt="" />
+              visualizer
+            </legend>
+
+            <div class="widget__body visualizer__body">
+              <canvas class="visualizer__canvas" data-visualizer-canvas width="200" height="100"></canvas>
             </div>
           </fieldset>
 

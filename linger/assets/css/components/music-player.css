@@ -120,3 +120,26 @@
   accent-color: var(--c-ink-2);
   cursor: pointer;
 }
+
+/* music visualizer */
+.visualizer__body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.visualizer__canvas{
+  width: 100%;
+  height: 90px;
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+}
+
+.music-visualizer .widget__icon{
+  display: inline-block;
+  animation: floaty 1s ease-in-out infinite;
+  will-change: transform;
+  transform: translateZ(0);
+}
