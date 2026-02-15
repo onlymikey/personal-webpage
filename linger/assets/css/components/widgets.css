@@ -1,0 +1,104 @@
+/* widgets.css — widget frames + titles + icons + micro-animations */
+
+/* widget frame */
+.widget{
+  border: 1px dashed var(--c-stitch);
+  padding: 12px 12px 10px;
+  background: var(--c-sidebar);
+  margin: 0;
+  min-inline-size: 0;
+}
+
+/* label that sits on the border (no modern badge look) */
+.widget__title{
+  position: relative;
+  top: -3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 0 6px;
+  margin-left: 8px;
+
+  font-family: var(--font-ui);
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.2px;
+
+  background: var(--c-sidebar);
+}
+
+/* icon style */
+.widget__icon,
+.retro-icon{
+  width: 14px;
+  height: 14px;
+  translate: 0 -0.5px;
+}
+
+/* optional action button */
+.widget__action{
+  margin-left: 6px;
+  font-size: 0.9em;
+  opacity: 0.85;
+  text-decoration: none;
+}
+.widget__action:hover{ text-decoration: underline; }
+
+/* body spacing */
+.widget__body{
+  padding-top: 6px;
+}
+
+/* ---------------------------
+   Micro animation: float 
+   --------------------------- */
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-2px); }
+}
+
+/* apply only when desired */
+.is-floaty .widget__icon,
+.widget__icon.is-floaty {
+  animation: floaty 1s ease-in-out infinite;
+  will-change: transform;
+  transform: translateZ(0); 
+}
+
+
+/* accessibility */
+@media (prefers-reduced-motion: reduce){
+  .is-floaty .widget__icon,
+  .is-floaty .retro-icon,
+  .widget__icon.is-floaty,
+  .retro-icon.is-floaty{
+    animation: none;
+    filter: none;
+    transform: none;
+  }
+}
+
+.widget__counter{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+/* separa cada contador */
+.counter-block{
+  display: flex;
+  justify-content: center;
+}
+
+/* imagen snazzy */
+.counter-img{
+  display: block;
+}
+
+/* opcional: micro padding display */
+.counter-block script + img{
+  margin-top: 4px;
+}
