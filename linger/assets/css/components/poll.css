@@ -1,0 +1,73 @@
+/* poll.css — poll widget styles */
+
+.widget__body .poll {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: var(--font-ui);
+  font-size: var(--ui-size);
+  color: inherit;
+}
+
+.widget__body .poll * {
+  font-family: var(--font-ui);
+  font-size: var(--ui-size);
+  color: inherit;
+}
+
+.widget__body .poll input[type="radio"],
+.widget__body .poll input[type="radio"]:checked {
+  font-family: var(--font-ui);
+  font-size: var(--ui-size);
+  color: inherit;
+}
+
+.widget__body .poll__question {
+  margin: 0;
+  font-weight: inherit;
+}
+
+.widget__body .poll__options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.widget__body .poll__option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: inherit;
+  font-family: var(--font-ui);
+  font-size: var(--ui-size);
+}
+
+.widget__body .poll__option input[type="radio"] {
+  flex-shrink: 0;
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: var(--ui-size);
+  color: inherit;
+}
+
+.widget__body .poll__actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.widget__body .poll__btn {
+  padding: 2px 8px;
+  font-size: 0.9rem;
+  font-weight: inherit;
+  background: none;
+  border: 1px solid currentColor;
+  cursor: pointer;
+  font-family: var(--font-ui);
+  color: inherit;
+}
+
+.widget__body .poll__btn:hover {
+  opacity: 0.8;
+}

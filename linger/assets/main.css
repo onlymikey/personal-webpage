@@ -2,16 +2,16 @@
 @import url("./css/tokens.css");
 @import url("./css/base.css");
 @import url("./css/layout.css");
-@import url("./css/components.css");
 @import url("./css/responsive.css");
 @import url('./css/typography.css');
 
 /* components.css se importa después de layout.css para que los estilos de los componentes puedan sobrescribir a los de layout si es necesario */
 
 @import url("./css/components/windows.css");
-@import url("./css/components/nav.css");
 @import url("./css/components/panels.css");
 @import url("./css/components/lists.css");
 @import url("./css/components/footer.css");
 @import url("./css/components/retro-menu.css");
 @import url("./css/components/widgets.css");
+@import url("./css/components/poll.css");
+@import url("./css/components/music-player.css");

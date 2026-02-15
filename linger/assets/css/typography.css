@@ -22,7 +22,9 @@
 .window h3,
 .site-footer,
 .window p,
-.window ul {
+.window ul,
+.window span,
+.window div {
   font-family: var(--font-ui);
   font-size: var(--ui-size);
   line-height: 1.4;

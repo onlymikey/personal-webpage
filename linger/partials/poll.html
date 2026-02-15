@@ -1,0 +1,36 @@
+<fieldset class="widget window" aria-label="poll widget">
+  <legend class="widget__title">
+    <img class="widget__icon is-floaty" src="assets/icons/poll.png" alt="" />
+    poll
+  </legend>
+
+  <div class="widget__body poll">
+    <form method="post" action="https://poll.pollcode.com/23226646">
+      <p class="poll__question">
+        Have you heard the album "The New Sound" by Geordie Greep?
+      </p>
+
+      <div class="poll__options" role="radiogroup" aria-label="poll options">
+        <label class="poll__option" for="answer232266461">
+          <input type="radio" name="answer" value="1" id="answer232266461" />
+          <span>Heck Yeah!</span>
+        </label>
+
+        <label class="poll__option" for="answer232266462">
+          <input type="radio" name="answer" value="2" id="answer232266462" />
+          <span>Nah... Not yet.</span>
+        </label>
+
+        <label class="poll__option" for="answer232266463">
+          <input type="radio" name="answer" value="3" id="answer232266463" />
+          <span>I don't like greeping.</span>
+        </label>
+      </div>
+
+      <div class="poll__actions">
+        <button class="poll__btn" type="submit">vote</button>
+        <button class="poll__btn" type="submit" name="view" value=" View ">view</button>
+      </div>
+    </form>
+  </div>
+</fieldset>

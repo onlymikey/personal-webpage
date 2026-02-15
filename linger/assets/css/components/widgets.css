@@ -28,6 +28,22 @@
   background: var(--c-sidebar);
 }
 
+/* Ensure legend titles display correctly */
+legend.widget__title {
+  position: relative;
+  top: -3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 6px;
+  margin-left: 8px;
+  font-family: var(--font-ui);
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.2px;
+  background: var(--c-sidebar);
+}
+
 /* icon style */
 .widget__icon,
 .retro-icon{
@@ -80,6 +96,7 @@
 }
 
 .widget__counter{
+  padding-top: 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -101,4 +118,82 @@
 /* opcional: micro padding display */
 .counter-block script + img{
   margin-top: 4px;
+}
+
+
+/* time widget */
+.time-widget{
+  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.time-widget__row{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.time-widget__clock{
+  font-family: var(--font-ui);
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.time-widget__date{
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+
+/* currently widget */
+.widget__body.currently{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--font-ui);
+  font-size: var(--ui-size);
+  color: inherit;
+}
+
+.widget__body.currently span,
+.widget__body.currently div {
+  font-family: var(--font-ui);
+  font-size: var(--ui-size);
+  color: inherit;
+}
+
+.currently__row{
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  min-width: 0;
+  flex-wrap: wrap;
+  font-family: var(--font-ui);
+  font-size: var(--ui-size);
+}
+
+.currently__icon{
+  width: 14px;
+  height: 14px;
+  translate: 0 -0.5px;
+  flex: 0 0 auto;
+}
+
+.currently__label{
+  opacity: 0.7;
+  font-size: 0.8rem;
+  flex: 0 0 auto;
+  font-family: var(--font-ui);
+}
+
+.currently__value{
+  min-width: 0;
+  font-family: var(--font-ui);
+  font-size: var(--ui-size);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
