@@ -6,6 +6,7 @@
     <title>Mikey Musso</title>
 
     <link rel="stylesheet" href="assets/main.css" />
+    <script defer src="assets/scripts/buttons-widget.js"></script>
     <script defer src="assets/scripts/time-widget.js"></script>
     <script defer src="assets/scripts/currently-widget.js"></script>
     <script defer src="assets/scripts/poll-widget.js"></script>
@@ -75,6 +76,19 @@
               </div>
             </details>
 
+            <div class="retro-menu__title">LAB</div>
+            <a class="retro-menu__link" href="/lab">enter lab</a>
+            <a class="retro-menu__link" href="/devlog">devlog</a>
+            <a class="retro-menu__link" href="/soundtrack">soundtrack</a>
+
+            <details class="retro-menu__group">
+              <summary class="retro-menu__summary">experiments</summary>
+              <div class="retro-menu__items">
+                <a class="retro-menu__sublink" href="/experiments/1">experiment 1</a>
+                <a class="retro-menu__sublink" href="/experiments/2">experiment 2</a>
+              </div>
+            </details>
+
             <div class="retro-menu__title">EXTRAS</div>
             <a class="retro-menu__link" href="/sitemap">sitemap</a>
             <a class="retro-menu__link" href="/rss">rss</a>
@@ -141,6 +155,9 @@
           </fieldset>
 
 
+          <!-- Widget web revival buttons (loaded from partial) -->
+          <div id="web-revival-container"></div>
+
           <!-- Widget changelog -->
           <fieldset class="widget window" aria-label="Changelog widget">
             <legend class="widget__title">
@@ -158,6 +175,9 @@
                 >↗</a
               >
             </legend>
+            <div class="widget__body">
+              <p>2026-02-27 — carousel + lab</p>
+            </div>
             <div class="widget__body">
               <p>2026-02-14 — widgets!</p>
             </div>

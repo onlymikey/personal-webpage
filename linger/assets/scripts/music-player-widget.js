@@ -169,6 +169,7 @@ function initMusicPlayerWidget() {
     tCur.textContent = formatTime(audio.currentTime);
     const pct = audio.duration ? (audio.currentTime / audio.duration) * 100 : 0;
     range.value = String(pct);
+    range.style.setProperty("--value", `${pct}%`);
   });
 
   audio.addEventListener("ended", async () => {
@@ -185,6 +186,8 @@ function initMusicPlayerWidget() {
 
   range.addEventListener("input", () => {
     seeking = true;
+    const pct = Number(range.value);
+    range.style.setProperty("--value", `${pct}%`);
   });
 
   range.addEventListener("change", () => {
@@ -197,6 +200,7 @@ function initMusicPlayerWidget() {
     const newVolume = Number(volumeRange.value) / 100;
     audio.volume = newVolume;
     if (newVolume > 0) previousVolume = newVolume;
+    volumeRange.style.setProperty("--value", `${volumeRange.value}%`);
     updateVolumeIcon();
   });
 
@@ -205,9 +209,11 @@ function initMusicPlayerWidget() {
       previousVolume = audio.volume;
       audio.volume = 0;
       volumeRange.value = "0";
+      volumeRange.style.setProperty("--value", "0%");
     } else {
       audio.volume = previousVolume;
       volumeRange.value = String(previousVolume * 100);
+      volumeRange.style.setProperty("--value", `${previousVolume * 100}%`);
     }
     updateVolumeIcon();
   });
@@ -223,6 +229,8 @@ function initMusicPlayerWidget() {
   // Initialize volume to 20%
   audio.volume = 0.2;
   previousVolume = 0.2;
+  volumeRange.style.setProperty("--value", "20%");
+  range.style.setProperty("--value", "0%");
   updateVolumeIcon();
 
   loadNow();

@@ -1,0 +1,37 @@
+/* web revival buttons widget */
+
+.web-revival__body {
+  padding: 8px 0;
+  overflow: hidden;
+}
+
+.web-revival__carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.web-revival__track {
+  display: flex;
+  gap: 6px;
+  padding: 0 4px;
+}
+
+.web-revival__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+.web-revival__button:hover {
+  opacity: 1;
+}
+
+.web-revival__button img {
+  display: block;
+  height: auto;
+  image-rendering: auto;
+}
