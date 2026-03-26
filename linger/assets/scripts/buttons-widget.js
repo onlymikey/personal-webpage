@@ -20,35 +20,117 @@ async function loadPartial(containerId, partialPath) {
 }
 
 function initButtonsCarousel() {
-  const track = document.querySelector('.web-revival__track');
   const carousel = document.querySelector('.web-revival__carousel');
-  
-  if (!track || !carousel) return;
-  
-  // Esperar a que las imágenes carguen
-  setTimeout(() => {
-    const buttons = Array.from(track.querySelectorAll('.web-revival__button'));
-    const oneSetWidth = buttons.slice(0, 15).reduce((sum, btn, i) => {
-      return sum + btn.offsetWidth + (i < 14 ? 6 : 0); // 6px gap entre botones
-    }, 0);
-    
-    let currentPos = 0;
-    const speed = 0.5; // píxeles por frame para velocidad
-    
-    function animate() {
-      currentPos += speed;
-      
-      // Reset para loop infinito cuando se alcanza el fin de una repetición
-      if (currentPos >= oneSetWidth) {
-        currentPos = 0;
-      }
-      
-      track.style.transform = `translateX(-${currentPos}px)`;
-      requestAnimationFrame(animate);
+  const track = document.querySelector('.web-revival__track');
+  if (!carousel || !track) return;
+
+  const baseButtons = Array.from(track.querySelectorAll('.web-revival__button'));
+  if (!baseButtons.length) return;
+
+  const cloneFragment = document.createDocumentFragment();
+  baseButtons.forEach((button) => {
+    cloneFragment.appendChild(button.cloneNode(true));
+  });
+  track.appendChild(cloneFragment);
+
+  const parsedSpeed = Number.parseFloat(carousel.dataset.speed || '');
+  const speed = Number.isFinite(parsedSpeed) ? parsedSpeed : 0.32;
+
+  let oneSetWidth = 0;
+  let progress = 0;
+  let isPaused = false;
+  let rafId = null;
+  let resizeTimer = null;
+
+  function measureBaseSetWidth() {
+    if (!baseButtons.length) {
+      oneSetWidth = 0;
+      return;
     }
-    
-    animate();
-  }, 500); // Esperar 500ms a que carguen las imágenes
+
+    const firstBtnRect = baseButtons[0].getBoundingClientRect();
+    const lastBtnRect = baseButtons[baseButtons.length - 1].getBoundingClientRect();
+    const rightEdge = lastBtnRect.left + lastBtnRect.width;
+    oneSetWidth = rightEdge - firstBtnRect.left;
+  }
+
+  function render() {
+    if (!oneSetWidth) return;
+
+    const offset = ((progress % oneSetWidth) + oneSetWidth) % oneSetWidth;
+    track.style.transform = `translateX(-${offset}px)`;
+  }
+
+  function step() {
+    if (!isPaused && oneSetWidth > 0) {
+      progress += speed;
+      if (progress >= oneSetWidth) {
+        progress -= oneSetWidth;
+      }
+      render();
+    }
+
+    rafId = requestAnimationFrame(step);
+  }
+
+  function recalculateWidthPreservingContinuity() {
+    const previousWidth = oneSetWidth;
+    const previousProgress = progress;
+
+    measureBaseSetWidth();
+    if (!oneSetWidth) return;
+
+    if (previousWidth > 0) {
+      const ratio = previousProgress / previousWidth;
+      progress = ratio * oneSetWidth;
+    } else {
+      progress = 0;
+    }
+
+    if (progress >= oneSetWidth) {
+      progress = progress % oneSetWidth;
+    }
+
+    render();
+  }
+
+  const onMouseEnter = () => {
+    isPaused = true;
+  };
+
+  const onMouseLeave = () => {
+    isPaused = false;
+  };
+
+  const onResize = () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(() => {
+      recalculateWidthPreservingContinuity();
+    }, 150);
+  };
+
+  carousel.addEventListener('mouseenter', onMouseEnter);
+  carousel.addEventListener('mouseleave', onMouseLeave);
+  window.addEventListener('resize', onResize);
+
+  const images = Array.from(track.querySelectorAll('img'));
+  const pending = images
+    .filter((img) => !img.complete)
+    .map((img) => new Promise((resolve) => {
+      img.addEventListener('load', resolve, { once: true });
+      img.addEventListener('error', resolve, { once: true });
+    }));
+
+  Promise.all(pending).then(() => {
+    measureBaseSetWidth();
+    if (!oneSetWidth) return;
+
+    render();
+    if (rafId !== null) {
+      cancelAnimationFrame(rafId);
+    }
+    rafId = requestAnimationFrame(step);
+  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
