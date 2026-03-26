@@ -1,21 +1,22 @@
-// Load HTML partials and initialize carousel animation
-let partialLoaded = false;
+// Load web revival partial and initialize carousel animation
+let webRevivalLoaded = false;
 
-async function loadPartial(containerId, partialPath) {
-  if (partialLoaded) return;
-  
+async function loadWebRevivalPartial() {
+  if (webRevivalLoaded) return;
+
   try {
-    const response = await fetch(partialPath);
-    if (!response.ok) throw new Error(`Failed to load ${partialPath}`);
+    const response = await fetch('partials/web-revival.html');
+    if (!response.ok) throw new Error('Failed to load partials/web-revival.html');
+
     const html = await response.text();
-    const container = document.getElementById(containerId);
+    const container = document.getElementById('web-revival-container');
     if (container && !container.innerHTML) {
       container.insertAdjacentHTML('beforeend', html);
-      partialLoaded = true;
+      webRevivalLoaded = true;
       initButtonsCarousel();
     }
   } catch (error) {
-    console.error(`Error loading partial ${partialPath}:`, error);
+    console.error('Error loading web revival partial:', error);
   }
 }
 
@@ -134,5 +135,5 @@ function initButtonsCarousel() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  loadPartial("web-revival-container", "partials/web-revival.html");
+  loadWebRevivalPartial();
 });

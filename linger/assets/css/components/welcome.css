@@ -1,0 +1,107 @@
+/* welcome.css — welcome layout + avatar OS-style frame */
+
+.welcome {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.welcome__text h1 {
+  margin: 0 0 8px;
+  font-size: 1.35rem;
+}
+
+.welcome__text p {
+  margin: 0 0 10px;
+}
+
+.welcome__text ul {
+  margin: 0 0 10px;
+}
+
+.about {
+  padding-left: 20px;
+}
+
+.about p {
+  margin: 0 0 6px;
+}
+
+.welcome-avatar-window {
+  background: var(--c-paper);
+  border: 2px solid var(--c-ink);
+  box-shadow:
+    0 0 0 2px var(--c-paper-2),
+    0 0 0 4px var(--c-ink),
+    6px 6px 0 rgba(19, 42, 19, 0.22);
+  overflow: hidden;
+}
+
+.welcome-avatar-window__titlebar {
+  background: linear-gradient(180deg, var(--c-accent-2), var(--c-accent));
+  color: var(--c-bg);
+  border-bottom: 2px solid var(--c-ink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px;
+  font-family: var(--font-pixel);
+  font-size: 0.65rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.welcome-avatar-window__title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 8px;
+}
+
+.welcome-avatar-window__buttons {
+  display: flex;
+  gap: 4px;
+}
+
+.welcome-avatar-window__btn {
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--c-ink);
+  background: var(--c-paper-2);
+  box-shadow: inset -1px -1px 0 rgba(19, 42, 19, 0.22);
+}
+
+.welcome-avatar-window__btn--close { background: #c84d4d; }
+.welcome-avatar-window__btn--min { background: #d2b65f; }
+.welcome-avatar-window__btn--max { background: #5f9a59; }
+
+.welcome-avatar-window__content {
+  padding: 10px;
+  background:
+    linear-gradient(45deg, rgba(19, 42, 19, 0.05) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(19, 42, 19, 0.05) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(19, 42, 19, 0.05) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(19, 42, 19, 0.05) 75%),
+    var(--c-paper-2);
+  background-size: 8px 8px;
+  background-position: 0 0, 0 4px, 4px -4px, -4px 0;
+}
+
+.welcome-avatar-window__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 2px solid var(--c-ink-2);
+  background: var(--c-paper);
+}
+
+@media (max-width: 760px) {
+  .welcome {
+    grid-template-columns: 1fr;
+  }
+
+  .welcome-avatar-window {
+    max-width: 280px;
+  }
+}
