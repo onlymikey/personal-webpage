@@ -22,7 +22,7 @@ async function loadTextPartial(containerId, partialPath) {
 document.addEventListener("DOMContentLoaded", () => {
   loadTextPartial("welcome-container", "partials/welcome.html");
   loadTextPartial("about-container", "partials/about.html");
-  loadTextPartial("left-menu-container", "partials/left-menu.html");
+  loadTextPartial("sidebar-menu-container", "partials/sidebar-menu.html");
   loadTextPartial("changelog-container", "partials/changelog.html");
   loadTextPartial("ralsei-container", "partials/ralsei.html");
 });
