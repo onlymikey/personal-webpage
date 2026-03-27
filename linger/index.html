@@ -19,188 +19,148 @@
     <div class="layout">
       <div class="content-grid">
         <aside class="sidebar sidebar-left">
-          <nav class="retro-menu" aria-label="Sidebar menu">
-            <div class="retro-menu__title">MENU</div>
-
-            <details class="retro-menu__group" open>
-              <summary class="retro-menu__summary">about me</summary>
-              <div class="retro-menu__items">
-                <a class="retro-menu__sublink" href="/about">who am i</a>
-                <a class="retro-menu__sublink" href="/stack">tech stack</a>
-              </div>
-            </details>
-
-            <details class="retro-menu__group" open>
-              <summary class="retro-menu__summary">projects</summary>
-              <div class="retro-menu__items">
-                <a class="retro-menu__sublink" href="/projects">index</a>
-                <a class="retro-menu__sublink" href="/projects/auto-park"
-                  >auto-park</a
-                >
-                <a
-                  class="retro-menu__sublink"
-                  href="/projects/hyprwinwrap-toggle"
-                  >hyprwinwrap-toggle</a
-                >
-                <a class="retro-menu__sublink" href="/projects/movimiento-cucei"
-                  >web movimiento CUCEI</a
-                >
-              </div>
-            </details>
-
-            <details class="retro-menu__group">
-              <summary class="retro-menu__summary">music</summary>
-              <div class="retro-menu__items">
-                <a class="retro-menu__sublink" href="/music">playlists</a>
-                <a class="retro-menu__sublink" href="/music/recs"
-                  >recommendations</a
-                >
-              </div>
-            </details>
-
-            <details class="retro-menu__group">
-              <summary class="retro-menu__summary">blogs</summary>
-              <div class="retro-menu__items">
-                <a class="retro-menu__sublink" href="/blog">main blog</a>
-                <a class="retro-menu__sublink" href="/notes">notes</a>
-              </div>
-            </details>
-
-            <details class="retro-menu__group">
-              <summary class="retro-menu__summary">links</summary>
-              <div class="retro-menu__items">
-                <a class="retro-menu__sublink" href="/contact">contact</a>
-                <a class="retro-menu__sublink" href="/cv">cv</a>
-                <a class="retro-menu__sublink" href="https://github.com/"
-                  >github</a
-                >
-              </div>
-            </details>
-
-            <div class="retro-menu__title">LAB</div>
-            <a class="retro-menu__link" href="/lab">enter lab</a>
-            <a class="retro-menu__link" href="/devlog">devlog</a>
-            <a class="retro-menu__link" href="/soundtrack">soundtrack</a>
-
-            <details class="retro-menu__group">
-              <summary class="retro-menu__summary">experiments</summary>
-              <div class="retro-menu__items">
-                <a class="retro-menu__sublink" href="/experiments/1">experiment 1</a>
-                <a class="retro-menu__sublink" href="/experiments/2">experiment 2</a>
-              </div>
-            </details>
-
-            <div class="retro-menu__title">EXTRAS</div>
-            <a class="retro-menu__link" href="/sitemap">sitemap</a>
-            <a class="retro-menu__link" href="/rss">rss</a>
-          </nav>
+          <div id="left-menu-container"></div>
 
           <!-- Widget music player -->
-          <fieldset class="widget window music-player" id="music-player" aria-label="music player">
+          <fieldset
+            class="widget window music-player"
+            id="music-player"
+            aria-label="music player"
+          >
             <legend class="widget__title">
-              <img class="widget__icon is-floaty" src="assets/icons/music.png" alt="" />
+              <img
+                class="widget__icon is-floaty"
+                src="assets/icons/music.png"
+                alt=""
+              />
               now playing!
             </legend>
 
             <div class="widget__body music-player__body">
-    <div class="music-player__row">
-      <img
-        class="music-player__cover"
-        src="assets/img/cover-placeholder.png"
-        alt="album cover"
-        width="56"
-        height="56"
-      />
+              <div class="music-player__row">
+                <img
+                  class="music-player__cover"
+                  src="assets/img/cover-placeholder.png"
+                  alt="album cover"
+                  width="56"
+                  height="56"
+                />
 
-      <div class="music-player__meta">
-        <div class="music-player__title" data-mp-title>—</div>
-        <div class="music-player__artist" data-mp-artist>—</div>
+                <div class="music-player__meta">
+                  <div class="music-player__title" data-mp-title>—</div>
+                  <div class="music-player__artist" data-mp-artist>—</div>
 
-        <div class="music-player__controls" role="group" aria-label="player controls">
-          <button class="mp-btn" type="button" data-mp-prev aria-label="previous">⏮</button>
-          <button class="mp-btn mp-btn--primary" type="button" data-mp-play aria-label="play/pause">▶</button>
-          <button class="mp-btn" type="button" data-mp-next aria-label="next">⏭</button>
-        </div>
-      </div>
-    </div>
+                  <div
+                    class="music-player__controls"
+                    role="group"
+                    aria-label="player controls"
+                  >
+                    <button
+                      class="mp-btn"
+                      type="button"
+                      data-mp-prev
+                      aria-label="previous"
+                    >
+                      ⏮
+                    </button>
+                    <button
+                      class="mp-btn mp-btn--primary"
+                      type="button"
+                      data-mp-play
+                      aria-label="play/pause"
+                    >
+                      ▶
+                    </button>
+                    <button
+                      class="mp-btn"
+                      type="button"
+                      data-mp-next
+                      aria-label="next"
+                    >
+                      ⏭
+                    </button>
+                  </div>
+                </div>
+              </div>
 
-    <div class="music-player__progress">
-      <span class="music-player__time" data-mp-cur>0:00</span>
-      <input class="mp-range" data-mp-seek type="range" min="0" max="100" value="0" step="0.1" aria-label="seek" />
-      <span class="music-player__time" data-mp-dur>0:00</span>
-    </div>
+              <div class="music-player__progress">
+                <span class="music-player__time" data-mp-cur>0:00</span>
+                <input
+                  class="mp-range"
+                  data-mp-seek
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="0"
+                  step="0.1"
+                  aria-label="seek"
+                />
+                <span class="music-player__time" data-mp-dur>0:00</span>
+              </div>
 
-    <div class="music-player__volume">
-      <button class="music-player__volume-btn" data-mp-mute-btn type="button" aria-label="toggle mute">
-        <img class="music-player__volume-img" data-mp-volume-icon src="assets/icons/volume.png" alt="" />
-      </button>
-      <input class="mp-range mp-range--volume" data-mp-volume type="range" min="0" max="100" value="20" step="1" aria-label="volume" />
-    </div>
+              <div class="music-player__volume">
+                <button
+                  class="music-player__volume-btn"
+                  data-mp-mute-btn
+                  type="button"
+                  aria-label="toggle mute"
+                >
+                  <img
+                    class="music-player__volume-img"
+                    data-mp-volume-icon
+                    src="assets/icons/volume.png"
+                    alt=""
+                  />
+                </button>
+                <input
+                  class="mp-range mp-range--volume"
+                  data-mp-volume
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="20"
+                  step="1"
+                  aria-label="volume"
+                />
+              </div>
 
-    <!-- IMPORTANT: no autoplay -->
-    <audio data-mp-audio preload="metadata"></audio>
+              <!-- IMPORTANT: no autoplay -->
+              <audio data-mp-audio preload="metadata"></audio>
             </div>
           </fieldset>
 
-
           <!-- Widget visualizer -->
-          <fieldset class="widget window music-visualizer" id="music-visualizer" aria-label="music visualizer" style="display: none;">
+          <fieldset
+            class="widget window music-visualizer"
+            id="music-visualizer"
+            aria-label="music visualizer"
+            style="display: none"
+          >
             <legend class="widget__title">
-              <img class="widget__icon is-floaty" src="assets/icons/music.png" alt="" />
+              <img
+                class="widget__icon is-floaty"
+                src="assets/icons/music.png"
+                alt=""
+              />
               visualizer
             </legend>
 
             <div class="widget__body visualizer__body">
-              <canvas class="visualizer__canvas" data-visualizer-canvas width="200" height="100"></canvas>
+              <canvas
+                class="visualizer__canvas"
+                data-visualizer-canvas
+                width="200"
+                height="100"
+              ></canvas>
             </div>
           </fieldset>
-
 
           <!-- Widget web revival buttons (loaded from partial) -->
           <div id="web-revival-container"></div>
 
-          <!-- Widget changelog -->
-          <fieldset class="widget window" aria-label="Changelog widget">
-            <legend class="widget__title">
-              <img
-                class="widget__icon is-floaty"
-                src="assets/icons/changelog.png"
-                alt=""
-                aria-hidden="true"
-              />
-              Changelog
-              <a
-                class="widget__action"
-                href="/changelog"
-                aria-label="Open changelog"
-                >↗</a
-              >
-            </legend>
-            <div class="widget__body">
-              <p>2026-03-25 — welcome/about partials</p>
-            </div>
-            <div class="widget__body">
-              <p>2026-03-25 — avatar window + about spacing</p>
-            </div>
-            <div class="widget__body">
-              <p>2026-02-27 — carousel + lab</p>
-            </div>
-            <div class="widget__body">
-              <p>2026-02-14 — widgets!</p>
-            </div>
-            <div class="widget__body">
-              <p>2026-02-13 — first commit</p>
-            </div>
-          </fieldset>
+          <div id="changelog-container"></div>
 
-          <!-- Ralsei.gif widget -->
-          <div style="display: flex; justify-content: center; padding: 1rem 0">
-            <img
-              src="assets/public/ralsei.gif"
-              alt="Ralsei"
-              style="max-width: 50%; height: auto"
-            />
-          </div>
+          <div id="ralsei-container"></div>
         </aside>
 
         <main class="main">
@@ -336,13 +296,81 @@
           <!-- Widget de Polls” -->
           <fieldset class="widget window" aria-label="poll widget">
             <legend class="widget__title">
-              <img class="widget__icon is-floaty" src="assets/icons/poll.png" alt="" />
+              <img
+                class="widget__icon is-floaty"
+                src="assets/icons/poll.png"
+                alt=""
+              />
               poll
             </legend>
 
             <div class="widget__body" id="poll-slot">
               <!-- Poll Snippet -->
-              <form method="post" action="https://poll.pollcode.com/23226646"><div style="background-color:#EEEEEE;padding:2px;width:175px;font-family:Arial;font-size:small;color:#000000;"><div style="padding:2px 0px 4px 2px;"><strong>Have you heard the album "The New Sound" by Geordie Greep?</strong></div><input type="radio" name="answer" value="1" id="answer232266461" style="float:left;" /><label for="answer232266461" style="float:left;width:150px;">Heck Yeah!</label><div style="clear:both;height:2px;"></div><input type="radio" name="answer" value="2" id="answer232266462" style="float:left;" /><label for="answer232266462" style="float:left;width:150px;">Nah... Not yet.</label><div style="clear:both;height:2px;"></div><input type="radio" name="answer" value="3" id="answer232266463" style="float:left;" /><label for="answer232266463" style="float:left;width:150px;">I don't like greeping.</label><div style="clear:both;height:2px;"></div><div align="center" style="padding:3px;"><input type="submit" value=" Vote ">&nbsp;<input type="submit" name="view" value=" View "></div><div align="right" style="font-size:10px">pollcode.com <a href="https://pollcode.com/">free polls</a></div></div></form>
+              <form method="post" action="https://poll.pollcode.com/23226646">
+                <div
+                  style="
+                    background-color: #eeeeee;
+                    padding: 2px;
+                    width: 175px;
+                    font-family: Arial;
+                    font-size: small;
+                    color: #000000;
+                  "
+                >
+                  <div style="padding: 2px 0px 4px 2px">
+                    <strong
+                      >Have you heard the album "The New Sound" by Geordie
+                      Greep?</strong
+                    >
+                  </div>
+                  <input
+                    type="radio"
+                    name="answer"
+                    value="1"
+                    id="answer232266461"
+                    style="float: left"
+                  /><label
+                    for="answer232266461"
+                    style="float: left; width: 150px"
+                    >Heck Yeah!</label
+                  >
+                  <div style="clear: both; height: 2px"></div>
+                  <input
+                    type="radio"
+                    name="answer"
+                    value="2"
+                    id="answer232266462"
+                    style="float: left"
+                  /><label
+                    for="answer232266462"
+                    style="float: left; width: 150px"
+                    >Nah... Not yet.</label
+                  >
+                  <div style="clear: both; height: 2px"></div>
+                  <input
+                    type="radio"
+                    name="answer"
+                    value="3"
+                    id="answer232266463"
+                    style="float: left"
+                  /><label
+                    for="answer232266463"
+                    style="float: left; width: 150px"
+                    >I don't like greeping.</label
+                  >
+                  <div style="clear: both; height: 2px"></div>
+                  <div align="center" style="padding: 3px">
+                    <input type="submit" value=" Vote " />&nbsp;<input
+                      type="submit"
+                      name="view"
+                      value=" View "
+                    />
+                  </div>
+                  <div align="right" style="font-size: 10px">
+                    pollcode.com <a href="https://pollcode.com/">free polls</a>
+                  </div>
+                </div>
+              </form>
               <!-- Poll Snippet -->
             </div>
           </fieldset>

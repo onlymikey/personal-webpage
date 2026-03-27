@@ -120,6 +120,17 @@ legend.widget__title {
   margin-top: 4px;
 }
 
+.ralsei-widget {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.ralsei-widget__image {
+  max-width: 50%;
+  height: auto;
+}
+
 
 /* time widget */
 .time-widget{
