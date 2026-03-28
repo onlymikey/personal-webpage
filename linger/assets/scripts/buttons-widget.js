@@ -20,9 +20,8 @@ async function loadWebRevivalPartial() {
   }
 }
 
-function initButtonsCarousel() {
-  const carousel = document.querySelector('.web-revival__carousel');
-  const track = document.querySelector('.web-revival__track');
+function initSingleCarousel(carousel) {
+  const track = carousel.querySelector('.web-revival__track');
   if (!carousel || !track) return;
 
   const baseButtons = Array.from(track.querySelectorAll('.web-revival__button'));
@@ -36,6 +35,7 @@ function initButtonsCarousel() {
 
   const parsedSpeed = Number.parseFloat(carousel.dataset.speed || '');
   const speed = Number.isFinite(parsedSpeed) ? parsedSpeed : 0.32;
+  const directionStep = carousel.dataset.direction === 'right' ? -1 : 1;
 
   let oneSetWidth = 0;
   let progress = 0;
@@ -64,9 +64,11 @@ function initButtonsCarousel() {
 
   function step() {
     if (!isPaused && oneSetWidth > 0) {
-      progress += speed;
+      progress += speed * directionStep;
       if (progress >= oneSetWidth) {
         progress -= oneSetWidth;
+      } else if (progress < 0) {
+        progress += oneSetWidth;
       }
       render();
     }
@@ -131,6 +133,13 @@ function initButtonsCarousel() {
       cancelAnimationFrame(rafId);
     }
     rafId = requestAnimationFrame(step);
+  });
+}
+
+function initButtonsCarousel() {
+  const carousels = Array.from(document.querySelectorAll('.web-revival__carousel'));
+  carousels.forEach((carousel) => {
+    initSingleCarousel(carousel);
   });
 }
 

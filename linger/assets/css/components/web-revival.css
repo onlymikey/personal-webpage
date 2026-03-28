@@ -11,6 +11,10 @@
   overflow: hidden;
 }
 
+.web-revival__carousel + .web-revival__carousel {
+  margin-top: 8px;
+}
+
 .web-revival__track {
   display: flex;
   gap: 6px;
@@ -34,4 +38,14 @@
   display: block;
   height: auto;
   image-rendering: auto;
+}
+
+.web-revival__button--banner img {
+  max-height: 31px;
+  width: auto;
+}
+
+.web-revival__button--coolgif img {
+  max-height: 36px;
+  width: auto;
 }
