@@ -6,15 +6,15 @@ const MOCK_QUEUE = [
   {
     title: "Hollywood Baby",
     artist: "100 gecs",
-    cover: "assets/mock/covers/hollywood-baby.png",
-    audio: "assets/mock/audio/hollywood-baby.mp3",
+    cover: "/assets/mock/covers/hollywood-baby.png",
+    audio: "/assets/mock/audio/hollywood-baby.mp3",
     duration: 45,
   },
   {
     title: "Safe and Sound",
     artist: "Capital Cities",
-    cover: "assets/mock/covers/safe-and-sound.png",
-    audio: "assets/mock/audio/safe-and-sound.mp3",
+    cover: "/assets/mock/covers/safe-and-sound.png",
+    audio: "/assets/mock/audio/safe-and-sound.mp3",
     duration: 52,
   },
 ];
@@ -220,9 +220,9 @@ function initMusicPlayerWidget() {
 
   function updateVolumeIcon() {
     if (audio.volume === 0) {
-      volumeIcon.src = "assets/icons/mute.png";
+      volumeIcon.src = "/assets/icons/mute.png";
     } else {
-      volumeIcon.src = "assets/icons/volume.png";
+      volumeIcon.src = "/assets/icons/volume.png";
     }
   }
 

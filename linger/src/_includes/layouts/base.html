@@ -3,26 +3,24 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Mikey Musso</title>
+    <title>{{ title }}</title>
 
-    <link rel="stylesheet" href="assets/main.css" />
-    <script defer src="assets/scripts/text-partials.js"></script>
-    <script defer src="assets/scripts/buttons-widget.js"></script>
-    <script defer src="assets/scripts/time-widget.js"></script>
-    <script defer src="assets/scripts/currently-widget.js"></script>
-    <script defer src="assets/scripts/poll-widget.js"></script>
-    <script defer src="assets/scripts/feed-widget.js"></script>
-    <script defer src="assets/scripts/music-player-widget.js"></script>
-    <script defer src="assets/scripts/visualizer-widget.js"></script>
+    <link rel="stylesheet" href="/assets/main.css" />
+    <script defer src="/assets/scripts/buttons-widget.js"></script>
+    <script defer src="/assets/scripts/time-widget.js"></script>
+    <script defer src="/assets/scripts/currently-widget.js"></script>
+    <script defer src="/assets/scripts/poll-widget.js"></script>
+    <script defer src="/assets/scripts/feed-widget.js"></script>
+    <script defer src="/assets/scripts/music-player-widget.js"></script>
+    <script defer src="/assets/scripts/visualizer-widget.js"></script>
   </head>
 
   <body>
     <div class="layout">
       <div class="content-grid">
         <aside class="sidebar sidebar-left">
-          <div id="sidebar-menu-container"></div>
+          {% include "partials/sidebar-menu.html" %}
 
-          <!-- Widget music player -->
           <fieldset
             class="widget window music-player"
             id="music-player"
@@ -31,7 +29,7 @@
             <legend class="widget__title">
               <img
                 class="widget__icon is-floaty"
-                src="assets/icons/music.png"
+                src="/assets/icons/music.png"
                 alt=""
               />
               now playing!
@@ -41,7 +39,7 @@
               <div class="music-player__row">
                 <img
                   class="music-player__cover"
-                  src="assets/img/cover-placeholder.png"
+                  src="/assets/public/avatar.png"
                   alt="album cover"
                   width="56"
                   height="56"
@@ -109,7 +107,7 @@
                   <img
                     class="music-player__volume-img"
                     data-mp-volume-icon
-                    src="assets/icons/volume.png"
+                    src="/assets/icons/volume.png"
                     alt=""
                   />
                 </button>
@@ -125,12 +123,10 @@
                 />
               </div>
 
-              <!-- IMPORTANT: no autoplay -->
               <audio data-mp-audio preload="metadata"></audio>
             </div>
           </fieldset>
 
-          <!-- Widget visualizer -->
           <fieldset
             class="widget window music-visualizer"
             id="music-visualizer"
@@ -140,7 +136,7 @@
             <legend class="widget__title">
               <img
                 class="widget__icon is-floaty"
-                src="assets/icons/music.png"
+                src="/assets/icons/music.png"
                 alt=""
               />
               visualizer
@@ -156,28 +152,22 @@
             </div>
           </fieldset>
 
-          <!-- Widget web revival buttons (loaded from partial) -->
-          <div id="web-revival-container"></div>
-
-          <div id="changelog-container"></div>
-
-          <div id="ralsei-container"></div>
+          {% include "partials/web-revival.html" %}
+          {% include "partials/changelog.html" %}
+          {% include "partials/ralsei.html" %}
         </aside>
 
         <main class="main">
           <div class="main-inner">
-            <section class="panel window">
-              <div id="whoami-container"></div>
-            </section>
+            {{ content }}
           </div>
         </main>
 
         <aside class="sidebar sidebar-right">
-          <!-- Widget de visitantes -->
           <fieldset class="widget window">
             <legend class="widget__title">
               <img
-                src="assets/icons/visitors.png"
+                src="/assets/icons/visitors.png"
                 class="widget__icon is-floaty"
                 alt=""
               />
@@ -185,7 +175,6 @@
             </legend>
 
             <div class="widget__body widget__counter">
-              <!-- Websiteout counter -->
               <div class="counter-block">
                 <script
                   type="text/javascript"
@@ -193,7 +182,6 @@
                 ></script>
               </div>
 
-              <!-- SnazzySpace counter -->
               <div class="widget__body widget__counter">
                 <img
                   src="http://www.snazzyspace.com/generators/viewer-counter/counter.php/fid=1771128549/style=4/counter.png"
@@ -204,12 +192,11 @@
             </div>
           </fieldset>
 
-          <!-- Widget de hora local -->
           <fieldset class="widget window" aria-label="Local time widget">
             <legend class="widget__title">
               <img
                 class="widget__icon is-floaty"
-                src="assets/icons/clock.png"
+                src="/assets/icons/clock.png"
                 alt=""
               />
               my local time
@@ -223,12 +210,11 @@
             </div>
           </fieldset>
 
-          <!-- Widget de status” -->
           <fieldset class="widget window" aria-label="Status widget">
             <legend class="widget__title">
               <img
                 class="widget__icon is-floaty"
-                src="assets/icons/status.png"
+                src="/assets/icons/status.png"
                 alt=""
                 aria-hidden="true"
               />
@@ -240,12 +226,11 @@
             </div>
           </fieldset>
 
-          <!-- Widget de currently” -->
           <fieldset class="widget window" aria-label="currently">
             <legend class="widget__title">
               <img
                 class="widget__icon is-floaty"
-                src="assets/icons/currently.png"
+                src="/assets/icons/currently.png"
                 alt=""
               />
               currently
@@ -255,7 +240,7 @@
               <div class="currently__row">
                 <img
                   class="currently__icon"
-                  src="assets/icons/hearing.png"
+                  src="/assets/icons/hearing.png"
                   alt=""
                 />
                 <span class="currently__label">song:</span>
@@ -263,7 +248,7 @@
               </div>
 
               <div class="currently__row">
-                <img class="currently__icon" src="assets/icons/tv.png" alt="" />
+                <img class="currently__icon" src="/assets/icons/tv.png" alt="" />
                 <span class="currently__label">watching:</span>
                 <span class="currently__value" id="curWatch">—</span>
               </div>
@@ -271,7 +256,7 @@
               <div class="currently__row">
                 <img
                   class="currently__icon"
-                  src="assets/icons/book.png"
+                  src="/assets/icons/book.png"
                   alt=""
                 />
                 <span class="currently__label">reading:</span>
@@ -281,7 +266,7 @@
               <div class="currently__row">
                 <img
                   class="currently__icon"
-                  src="assets/icons/game.png"
+                  src="/assets/icons/game.png"
                   alt=""
                 />
                 <span class="currently__label">playing:</span>
@@ -290,26 +275,26 @@
             </div>
           </fieldset>
 
-          <!-- Widget de Polls” -->
           <fieldset class="widget window" aria-label="poll widget">
             <legend class="widget__title">
               <img
                 class="widget__icon is-floaty"
-                src="assets/icons/poll.png"
+                src="/assets/icons/poll.png"
                 alt=""
               />
               poll
             </legend>
 
-            <div class="widget__body" id="poll-slot"></div>
+            <div class="widget__body" id="poll-slot">
+              {% include "partials/poll.html" %}
+            </div>
           </fieldset>
 
-          <!-- Widget de links” -->
           <fieldset class="widget window" aria-label="Links widget">
             <legend class="widget__title">
               <img
                 class="widget__icon is-floaty"
-                src="assets/icons/links.png"
+                src="/assets/icons/links.png"
                 alt=""
                 aria-hidden="true"
               />

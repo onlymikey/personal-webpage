@@ -1,33 +1,3 @@
-let pollLoaded = false;
-
-async function loadPollPartial() {
-  if (pollLoaded) return true;
-
-  const slot = document.getElementById("poll-slot");
-  if (!slot) return false;
-
-  if (slot.querySelector('form[action*="poll.pollcode.com"]')) {
-    pollLoaded = true;
-    return true;
-  }
-
-  try {
-    const response = await fetch("partials/poll.html");
-    if (!response.ok) throw new Error("Failed to load partials/poll.html");
-
-    const html = await response.text();
-    if (!slot.innerHTML.trim()) {
-      slot.insertAdjacentHTML("beforeend", html);
-    }
-
-    pollLoaded = true;
-    return true;
-  } catch (error) {
-    console.error("Error loading poll partial:", error);
-    return false;
-  }
-}
-
 function initPollWidget() {
   const pollForm = document.querySelector('form[action*="poll.pollcode.com"]');
   if (!pollForm) return;
@@ -103,8 +73,6 @@ function initPollWidget() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
-  const loaded = await loadPollPartial();
-  if (!loaded) return;
+document.addEventListener("DOMContentLoaded", () => {
   initPollWidget();
 });

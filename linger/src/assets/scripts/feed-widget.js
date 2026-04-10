@@ -1,4 +1,3 @@
-const FEED_PARTIAL_PATH = "partials/feed.html";
 const FEED_CONTAINER_ID = "feed-container";
 const FEED_LIST_ID = "feed-list";
 const FEED_LIKES_STORAGE_KEY = "linger.feed.likes.v1";
@@ -267,27 +266,8 @@ function renderFeed(feedRoot) {
   list.appendChild(fragment);
 }
 
-async function loadFeedPartial() {
-  const container = document.getElementById(FEED_CONTAINER_ID);
-  if (!container) return null;
-
-  if (container.childElementCount > 0) return container;
-
-  try {
-    const response = await fetch(FEED_PARTIAL_PATH);
-    if (!response.ok) throw new Error(`Failed to load ${FEED_PARTIAL_PATH}`);
-
-    const html = await response.text();
-    container.insertAdjacentHTML("beforeend", html);
-    return container;
-  } catch (error) {
-    console.error("Error loading feed partial:", error);
-    return null;
-  }
-}
-
-document.addEventListener("DOMContentLoaded", async () => {
-  const feedRoot = await loadFeedPartial();
+document.addEventListener("DOMContentLoaded", () => {
+  const feedRoot = document.getElementById(FEED_CONTAINER_ID);
   if (!feedRoot) return;
 
   ensureFeedLightbox();

@@ -1,25 +1,3 @@
-// Load web revival partial and initialize carousel animation
-let webRevivalLoaded = false;
-
-async function loadWebRevivalPartial() {
-  if (webRevivalLoaded) return;
-
-  try {
-    const response = await fetch('partials/web-revival.html');
-    if (!response.ok) throw new Error('Failed to load partials/web-revival.html');
-
-    const html = await response.text();
-    const container = document.getElementById('web-revival-container');
-    if (container && !container.innerHTML) {
-      container.insertAdjacentHTML('beforeend', html);
-      webRevivalLoaded = true;
-      initButtonsCarousel();
-    }
-  } catch (error) {
-    console.error('Error loading web revival partial:', error);
-  }
-}
-
 function initSingleCarousel(carousel) {
   const track = carousel.querySelector('.web-revival__track');
   if (!carousel || !track) return;
@@ -144,5 +122,5 @@ function initButtonsCarousel() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  loadWebRevivalPartial();
+  initButtonsCarousel();
 });
