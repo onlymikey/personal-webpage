@@ -6,48 +6,11 @@ const FEED_LIGHTBOX_ID = "feed-lightbox";
 
 const FEED_POSTS = [
   {
-    id: "post-004",
-    content: "I fixed the partial loader for the sidebar and poll without touching the backend.",
-    createdAt: "2026-03-27T19:20:00-06:00",
-    media: null,
-    likes: 8,
-  },
-  {
-    id: "post-003",
-    content: "I tested a local queue mock for the music player. I want to move it to a real endpoint later.",
-    createdAt: "2026-03-26T23:05:00-06:00",
-    media: {
-      type: "video",
-      src: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
-      mimeType: "video/mp4",
-      aspectRatio: "panoramic",
-      caption: "Mock media demo",
-    },
-    likes: 14,
-  },
-  {
-    id: "post-002",
-    content: "New set of web revival buttons. I am still cleaning up some links.",
-    createdAt: "2026-03-25T14:40:00-06:00",
-    media: {
-      type: "gif",
-      src: "assets/public/buttons/32bitcafe.gif",
-      alt: "32bit cafe button",
-      aspectRatio: "panoramic",
-    },
-    likes: 21,
-  },
-  {
     id: "post-001",
-    content: "Today I moved several blocks into partials to keep index lighter.",
-    createdAt: "2026-03-24T09:10:00-06:00",
-    media: {
-      type: "image",
-      src: "assets/public/avatar.png",
-      alt: "Mikey avatar",
-      aspectRatio: "square",
-    },
-    likes: 5,
+    content: "Placeholder post. My updates will appear here.",
+    createdAt: "2026-04-09T00:00:00-06:00",
+    media: null,
+    likes: 0,
   },
 ];
 
