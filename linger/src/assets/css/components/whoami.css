@@ -1,0 +1,45 @@
+/* whoami.css — styles specific to the whoami page section */
+
+.whoami h1 {
+  margin: 0 0 10px;
+}
+
+.whoami h2 {
+  margin: 14px 0 8px;
+  font-size: 1.05rem;
+  font-family: var(--font-ui);
+  letter-spacing: 0.25px;
+}
+
+.whoami hr {
+  border: 0;
+  border-top: 1px dashed var(--c-stitch);
+  margin: 14px 0;
+}
+
+.whoami .mini-list {
+  margin: 0 0 10px;
+}
+
+.whoami-media {
+  margin: 10px 0 12px;
+  display: inline-block;
+  border: 1px dashed var(--c-stitch);
+  background: var(--c-sidebar);
+  padding: 6px 8px;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+}
+
+.whoami .welcome-avatar-window__image {
+  display: block;
+  max-height: 350px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.whoami-final-gif {
+  display: block;
+  margin: 10px auto 0;
+}

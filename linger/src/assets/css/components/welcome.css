@@ -28,40 +28,6 @@
   margin: 0 0 6px;
 }
 
-.whoami h1 {
-  margin: 0 0 10px;
-}
-
-.whoami h2 {
-  margin: 14px 0 8px;
-  font-size: 1.05rem;
-  font-family: var(--font-ui);
-  letter-spacing: 0.25px;
-}
-
-.whoami hr {
-  border: 0;
-  border-top: 1px dashed var(--c-stitch);
-  margin: 14px 0;
-}
-
-.whoami .mini-list {
-  margin: 0 0 10px;
-}
-
-.whoami-media-placeholder {
-  margin: 10px 0 12px;
-  border: 1px dashed var(--c-stitch);
-  background: var(--c-sidebar);
-  padding: 8px 10px;
-  font-family: var(--font-ui);
-  font-size: 0.8rem;
-}
-
-.whoami-media-placeholder figcaption {
-  margin: 0;
-}
-
 .welcome-avatar-window {
   background: var(--c-paper);
   border: 2px solid var(--c-ink);
