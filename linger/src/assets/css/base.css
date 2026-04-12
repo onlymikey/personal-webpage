@@ -7,7 +7,9 @@ body{
   margin: 0;
   font-family: var(--font);
   color: var(--c-ink);
-  background: var(--c-bg);
+  background: var(--c-bg) url('/assets/public/background.jpg') repeat;
+  background-size: auto;
+  background-blend-mode: multiply;
   line-height: 1.45;
 }
 
