@@ -43,3 +43,138 @@
   display: block;
   margin: 10px auto 0;
 }
+
+.overview-page {
+  display: block;
+}
+
+.overview-box {
+  border: 1px dashed var(--c-stitch);
+  background: var(--c-paper-2);
+  padding: 12px;
+}
+
+.overview-box h1 {
+  margin: 0 0 8px;
+  font-size: 1.18rem;
+  font-family: var(--font-display);
+  letter-spacing: 0.3px;
+}
+
+.overview-mosaic {
+  display: grid;
+  grid-template-columns: minmax(150px, 190px) 1fr 1.1fr;
+  grid-template-areas:
+    "avatar intro intro"
+    "personal facts badges";
+  column-gap: 12px;
+  row-gap: 12px;
+  align-items: start;
+}
+
+.overview-box p {
+  margin: 0 0 8px;
+  font-family: var(--font-ui);
+}
+
+.overview-box__text {
+  grid-area: intro;
+  padding-right: 8px;
+}
+
+.overview-box__avatar {
+  grid-area: avatar;
+  margin: 0;
+  align-self: start;
+  justify-self: start;
+}
+
+.overview-box__avatar .welcome-avatar-window__image {
+  width: 100%;
+  height: auto;
+  max-height: 210px;
+}
+
+.overview-box h2 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  font-family: var(--font-display);
+  letter-spacing: 0.2px;
+}
+
+.overview-box h3 {
+  margin: 0 0 4px;
+  font-size: 0.82rem;
+  font-family: var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+.overview-box__personal,
+.overview-box__facts,
+.overview-box__badges {
+  border: 1px dashed var(--c-stitch);
+  background: var(--c-paper);
+  padding: 7px;
+  min-height: 100%;
+}
+
+.overview-box__personal {
+  grid-area: personal;
+}
+
+.overview-box__facts {
+  grid-area: facts;
+}
+
+.overview-box__badges {
+  grid-area: badges;
+}
+
+.overview-list {
+  margin: 0;
+  padding-left: 16px;
+  display: grid;
+  gap: 2px;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  line-height: 1.3;
+}
+
+.overview-badge-line + .overview-badge-line {
+  margin-top: 6px;
+}
+
+.overview-badge-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px 4px;
+}
+
+.overview-badge-grid img {
+  display: block;
+  height: auto;
+  max-width: 88px;
+  image-rendering: pixelated;
+}
+
+@media (max-width: 860px) {
+  .overview-mosaic {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "avatar"
+      "intro"
+      "personal"
+      "facts"
+      "badges";
+  }
+
+  .overview-box__avatar {
+    justify-self: start;
+    max-width: 210px;
+  }
+
+  .overview-box__text {
+    padding-right: 0;
+  }
+}
