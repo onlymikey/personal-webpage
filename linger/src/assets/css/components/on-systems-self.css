@@ -192,7 +192,7 @@
 }
 
 .overview-box--likes {
-  margin-bottom: 0;
+  margin-bottom: 12px;
 }
 
 .likes-grid {
@@ -235,6 +235,65 @@
 
 .likes-scroll::-webkit-scrollbar-thumb:hover {
   background: var(--c-accent);
+}
+
+.overview-box--stack {
+  margin-bottom: 12px;
+}
+
+.overview-box--contact {
+  margin-bottom: 0;
+}
+
+.contact-copy {
+  margin-bottom: 8px;
+}
+
+.contact-copy p:last-child {
+  margin-bottom: 10px;
+}
+
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.stack-card {
+  border: 1px dashed var(--c-stitch);
+  background: var(--c-paper);
+  padding: 8px;
+}
+
+.stack-card h2 {
+  margin-bottom: 8px;
+}
+
+.stack-badge-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 5px;
+}
+
+.stack-badge-link {
+  display: inline-flex;
+  border-radius: 4px;
+}
+
+.stack-badge-link:hover {
+  transform: translateY(-1px);
+}
+
+.stack-badge-link:focus-visible {
+  outline: var(--focus);
+  outline-offset: 1px;
+}
+
+.stack-badge-grid img {
+  display: block;
+  height: auto;
+  max-width: 92px;
+  image-rendering: pixelated;
 }
 
 .overview-badge-line + .overview-badge-line {
@@ -280,5 +339,13 @@
 
   .likes-scroll {
     max-height: 220px;
+  }
+
+  .stack-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stack-badge-grid img {
+    max-width: 84px;
   }
 }
