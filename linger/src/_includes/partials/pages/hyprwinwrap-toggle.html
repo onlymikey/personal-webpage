@@ -1,0 +1,204 @@
+<article class="project-template">
+  <header class="project-template__hero">
+    <h1>hyprwinwrap-toggle</h1>
+    <p>
+      A fork of hyprwinwrap focused on keeping compatibility with newer hyprland
+      versions, while making it easier to use applications as dynamic wallpapers
+      with better control over behavior and interaction.
+    </p>
+  </header>
+
+  <section
+    class="project-template__section"
+    aria-labelledby="hyprwinwrap-toggle-context"
+  >
+    <h2 id="hyprwinwrap-toggle-context">context</h2>
+    <p>i just wanted to run a chill game as my wallpaper.</p>
+    <p>
+      but the problem was obvious: either it stays interactive and steals focus,
+      or it behaves like a background and you cannot actually use it.
+    </p>
+    <p>there was no middle ground.</p>
+    <p>
+      so the idea became: what if i could switch between those two states
+      whenever i wanted.
+    </p>
+    <p>
+      at some point, that idea turned into fixing compatibility issues with
+      newer hyprland versions, and somehow i ended up maintaining a plugin
+      without really planning to.
+    </p>
+  </section>
+
+  <section
+    class="project-template__section"
+    aria-labelledby="hyprwinwrap-toggle-what-it-does"
+  >
+    <h2 id="hyprwinwrap-toggle-what-it-does">what it does</h2>
+    <p>
+      it lets you run a wayland app as a dynamic wallpaper, while being able to
+      toggle its interactivity in real time.
+    </p>
+    <p>when it is not interactable, it behaves like a normal background.</p>
+    <p>when it is, it acts like a regular window with full input.</p>
+  </section>
+
+  <section
+    class="project-template__section"
+    aria-labelledby="hyprwinwrap-toggle-features"
+  >
+    <h2 id="hyprwinwrap-toggle-features">features</h2>
+    <ul class="mini-list">
+      <li>runs apps as wallpaper-like background surfaces</li>
+      <li>toggle interactivity at runtime</li>
+      <li>supports mouse, keyboard, and drag &amp; drop when enabled</li>
+      <li>handles focus without breaking the rest of the workspace</li>
+      <li>fixes stacking issues with scratchpads and special workspaces</li>
+      <li>keeps compatibility with newer hyprland versions</li>
+    </ul>
+  </section>
+
+  <section
+    class="project-template__section"
+    aria-labelledby="hyprwinwrap-toggle-visuals"
+  >
+    <h2 id="hyprwinwrap-toggle-visuals">visuals</h2>
+    <div class="project-visuals-grid">
+      <figure class="project-visual-item">
+        <img
+          src="/assets/public/projects/hyprwinwrap-toggle/hyprwinwrap1.jpg"
+          alt="Hyprwinwrap toggle setup"
+          loading="lazy"
+          decoding="async"
+          class="project-visual-item__image"
+          tabindex="0"
+          role="button"
+        />
+        <span class="project-visual-item__expand-indicator" aria-hidden="true">expand ↗</span>
+      </figure>
+      <figure class="project-visual-item">
+        <img
+          src="/assets/public/projects/hyprwinwrap-toggle/hyprwinwrap2.jpg"
+          alt="Hyprwinwrap toggle gameplay view"
+          loading="lazy"
+          decoding="async"
+          class="project-visual-item__image"
+          tabindex="0"
+          role="button"
+        />
+        <span class="project-visual-item__expand-indicator" aria-hidden="true">expand ↗</span>
+      </figure>
+    </div>
+  </section>
+
+  <section
+    class="project-template__section"
+    aria-labelledby="hyprwinwrap-toggle-process"
+  >
+    <h2 id="hyprwinwrap-toggle-process">process</h2>
+    <p>this started as just getting the plugin to work again.</p>
+    <p>
+      hyprland had changed enough that the original code no longer compiled
+      cleanly, so part of the work was adapting headers and making things
+      compatible with newer versions.
+    </p>
+    <p>from there, it became more about behavior.</p>
+    <p>
+      making sure the window could act like a wallpaper without breaking focus,
+      handling input correctly, and avoiding weird issues with stacking and
+      special workspaces.
+    </p>
+    <p>
+      one of the tricky parts was controlling when the window should receive
+      input and when it should not, without causing flickering or losing focus
+      unexpectedly.
+    </p>
+    <p>
+      another was making sure it only rendered where it should, avoiding issues
+      across monitors and workspaces.
+    </p>
+    <p>
+      over time it went from "just fix it" to actually understanding how
+      hyprland handles windows, rendering, and input internally.
+    </p>
+  </section>
+
+  <section
+    class="project-template__section"
+    aria-labelledby="hyprwinwrap-toggle-how-to-use"
+  >
+    <h2 id="hyprwinwrap-toggle-how-to-use">how to use</h2>
+    <h3>Install</h3>
+    <p>Using hyprpm</p>
+    <p>Update plugin headers:</p>
+    <pre class="project-template__code"><code>hyprpm update</code></pre>
+    <p>Add this repository:</p>
+    <pre class="project-template__code"><code>hyprpm add https://github.com/onlymikey/hyprwinwrap-toggle</code></pre>
+    <p>Enable the plugin:</p>
+    <pre class="project-template__code"><code>hyprpm enable hyprwinwrap-toggle</code></pre>
+    <p>For more details, see:</p>
+    <pre class="project-template__code"><code>https://wiki.hyprland.org/Plugins/Using-Plugins/#installing--using-plugins
+hyprpm -h</code></pre>
+
+    <h3>Dispatch</h3>
+    <pre class="project-template__code"><code>hyprctl dispatch hyprwinwrap_toggle</code></pre>
+    <p>This toggles input handling for all managed background windows.</p>
+
+    <h3>Configuration</h3>
+    <p>Configuration follows the original hyprwinwrap semantics.</p>
+    <p>See upstream-style options here:</p>
+    <pre class="project-template__code"><code>hyprwinwrap/README.md</code></pre>
+    <p>
+      Typical usage is matching a window by class or title and letting the
+      plugin manage it as a background surface.
+    </p>
+
+    <h3>Toggling interactivity</h3>
+    <p>Example keybind:</p>
+    <pre class="project-template__code"><code>bind = SUPER, L, exec, hyprctl dispatch hyprwinwrap_toggle</code></pre>
+    <p>
+      When disabled, the window behaves like a wallpaper. When enabled, the
+      window accepts mouse and keyboard input normally.
+    </p>
+  </section>
+
+  <section
+    class="project-template__section"
+    aria-labelledby="hyprwinwrap-toggle-stack"
+  >
+    <h2 id="hyprwinwrap-toggle-stack">stack</h2>
+    <ul class="mini-list">
+      <li>c++</li>
+      <li>hyprland plugin api</li>
+      <li>wayland / wlroots</li>
+      <li>hyprland render hooks</li>
+    </ul>
+  </section>
+
+  <section
+    class="project-template__section"
+    aria-labelledby="hyprwinwrap-toggle-notes"
+  >
+    <h2 id="hyprwinwrap-toggle-notes">notes</h2>
+    <p>depends on hyprland internals, so changes upstream can break things.</p>
+    <p>mainly focused on input behavior and compatibility.</p>
+    <p>rendering behavior mostly follows upstream.</p>
+  </section>
+
+  <section
+    class="project-template__section"
+    aria-labelledby="hyprwinwrap-toggle-links"
+  >
+    <h2 id="hyprwinwrap-toggle-links">links</h2>
+    <div class="project-links-badges">
+      <a href="https://github.com/onlymikey/hyprwinwrap-toggle" target="_blank" rel="noopener noreferrer">
+        <img
+          src="/assets/public/projects/stack-badges/github.svg"
+          alt="GitHub badge"
+          loading="lazy"
+          decoding="async"
+        />
+      </a>
+    </div>
+  </section>
+</article>

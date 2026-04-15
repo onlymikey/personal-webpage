@@ -140,6 +140,13 @@
   text-transform: lowercase;
 }
 
+.project-template__section h3 {
+  margin: 8px 0 6px;
+  font-size: 0.95rem;
+  font-family: var(--font-display);
+  text-transform: lowercase;
+}
+
 .project-template__section p,
 .project-template__section li {
   font-family: var(--font-ui);
@@ -155,14 +162,96 @@
 }
 
 .project-template__code {
+  position: relative;
   margin: 8px 0 0;
   border: 1px dashed var(--c-stitch);
   border-radius: 8px;
   background: var(--c-sidebar);
   padding: 8px;
+  padding-right: 30px;
   overflow: auto;
   font-family: var(--font-ui);
   font-size: 0.82rem;
+}
+
+.project-template__code__copy-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  padding: 0;
+  width: 18px;
+  height: 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 140ms ease;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-template__code__copy-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 140ms ease, transform 140ms ease;
+}
+
+.project-template__code__copy-btn:hover img {
+  transform: scale(1.12);
+  opacity: 0.8;
+}
+
+.project-template__code__copy-btn.copied img {
+  opacity: 0.5;
+  transform: scale(0.95);
+}
+
+/* Copy notification toast */
+.copy-notification {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--c-paper);
+  border: 1px dashed var(--c-stitch);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: var(--c-ink);
+  z-index: 10000;
+  animation: copySlideIn 300ms ease-out, copySlideOut 300ms ease-out 1700ms forwards;
+  box-shadow: var(--shadow);
+}
+
+@keyframes copySlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes copySlideOut {
+  from {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-50%) translateY(60px);
+  }
+}
+
+body.theme-dark .copy-notification {
+  background: var(--c-paper);
+  border: 1px dashed var(--c-stitch);
+  color: var(--c-ink);
 }
 
 .project-template__section code {
@@ -171,6 +260,10 @@
 
 .project-template__code code {
   font-family: inherit;
+}
+
+.project-links-badges--spaced {
+  margin-top: 12px;
 }
 
 /* project visuals grid */

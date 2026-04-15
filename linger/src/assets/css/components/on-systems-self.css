@@ -46,6 +46,9 @@
 
 .overview-page {
   display: block;
+  border: 1px solid transparent;
+  padding: 0;
+  margin: 0 auto;
 }
 
 .overview-box {

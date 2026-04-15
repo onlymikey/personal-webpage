@@ -68,6 +68,74 @@ function ensureProjectLightbox() {
   return lightbox;
 }
 
+function showCopyNotification() {
+  // Remove existing notification if any
+  const existing = document.querySelector(".copy-notification");
+  if (existing) {
+    existing.remove();
+  }
+  
+  const notification = document.createElement("div");
+  notification.className = "copy-notification";
+  notification.textContent = "copied!";
+  notification.setAttribute("role", "status");
+  notification.setAttribute("aria-live", "polite");
+  
+  document.body.appendChild(notification);
+  
+  // Remove element after animation completes (2 seconds)
+  setTimeout(() => {
+    notification.remove();
+  }, 2000);
+}
+
+function initCodeCopyButtons() {
+  // Add copy buttons to all code blocks
+  const codeBlocks = document.querySelectorAll(".project-template__code");
+  
+  codeBlocks.forEach((block) => {
+    // Check if button already exists
+    if (block.querySelector(".project-template__code__copy-btn")) return;
+    
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "project-template__code__copy-btn";
+    btn.setAttribute("aria-label", "Copy code block");
+    
+    const img = document.createElement("img");
+    img.src = "/assets/public/projects/copysvg.svg";
+    img.alt = "copy";
+    btn.appendChild(img);
+    
+    btn.addEventListener("click", async (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      
+      // Get text content from code element
+      const codeElement = block.querySelector("code");
+      const text = codeElement ? codeElement.textContent : block.textContent;
+      
+      // Copy to clipboard
+      try {
+        await navigator.clipboard.writeText(text.trim());
+        
+        // Visual feedback on button
+        btn.classList.add("copied");
+        setTimeout(() => {
+          btn.classList.remove("copied");
+        }, 2000);
+        
+        // Show notification toast
+        showCopyNotification();
+      } catch (err) {
+        console.error("Failed to copy:", err);
+      }
+    });
+    
+    block.appendChild(btn);
+  });
+}
+
 function initProjectVisuals() {
   // Handle images in visuals
   const images = document.querySelectorAll(".project-visual-item__image");
@@ -103,7 +171,11 @@ function initProjectVisuals() {
 
 // Initialize when DOM is ready
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initProjectVisuals);
+  document.addEventListener("DOMContentLoaded", () => {
+    initProjectVisuals();
+    initCodeCopyButtons();
+  });
 } else {
   initProjectVisuals();
+  initCodeCopyButtons();
 }

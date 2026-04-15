@@ -3,13 +3,16 @@
     <h1>auto-park</h1>
     <p>
       Educational project that explores how to automate collecting episode
-        metadata from the southpark.lat website, work with video and audio
-        streams, and validate media files using tools like python, selenium,
-        beautifulsoup, and ffmpeg.
+      metadata from the southpark.lat website, work with video and audio
+      streams, and validate media files using tools like python, selenium,
+      beautifulsoup, and ffmpeg.
     </p>
   </header>
 
-  <section class="project-template__section" aria-labelledby="auto-park-context">
+  <section
+    class="project-template__section"
+    aria-labelledby="auto-park-context"
+  >
     <h2 id="auto-park-context">context</h2>
     <p>
       this started from a simple curiosity: if a video plays in the browser,
@@ -33,11 +36,12 @@
     </p>
   </section>
 
-  <section class="project-template__section" aria-labelledby="auto-park-what-it-does">
+  <section
+    class="project-template__section"
+    aria-labelledby="auto-park-what-it-does"
+  >
     <h2 id="auto-park-what-it-does">what it does</h2>
-    <p>
-      it automates the whole process of working with streaming content.
-    </p>
+    <p>it automates the whole process of working with streaming content.</p>
     <p>
       it collects episode metadata, captures the actual stream sources from the
       browser, selects the best available quality, downloads video and audio
@@ -46,10 +50,16 @@
     </p>
   </section>
 
-  <section class="project-template__section" aria-labelledby="auto-park-features">
+  <section
+    class="project-template__section"
+    aria-labelledby="auto-park-features"
+  >
     <h2 id="auto-park-features">features</h2>
     <ul class="mini-list">
-      <li>builds a full dataset of episodes using the site's own internal structure</li>
+      <li>
+        builds a full dataset of episodes using the site's own internal
+        structure
+      </li>
       <li>captures real .m3u8 streams directly from network traffic</li>
       <li>selects the best quality stream without relying on ui labels</li>
       <li>downloads video and multiple audio tracks separately</li>
@@ -59,12 +69,18 @@
     </ul>
   </section>
 
-  <section class="project-template__section" aria-labelledby="auto-park-visuals">
+  <section
+    class="project-template__section"
+    aria-labelledby="auto-park-visuals"
+  >
     <h2 id="auto-park-visuals">visuals</h2>
     <div class="project-visuals-grid"></div>
   </section>
 
-  <section class="project-template__section" aria-labelledby="auto-park-process">
+  <section
+    class="project-template__section"
+    aria-labelledby="auto-park-process"
+  >
     <h2 id="auto-park-process">process</h2>
     <p>
       i started by manually inspecting network requests, looking through the
@@ -72,15 +88,14 @@
       to .m3u8 streams and how they were structured.
     </p>
     <p>
-      from there, i moved into automating the browser using selenium,
-      triggering playback and capturing requests automatically instead of doing
-      everything by hand.
+      from there, i moved into automating the browser using selenium, triggering
+      playback and capturing requests automatically instead of doing everything
+      by hand.
     </p>
     <p>
-      once i had access to the streams, the focus shifted into making
-      decisions: how to reliably pick the best quality, how to deal with
-      multiple audio tracks, and how to handle inconsistencies between episodes
-      and pages.
+      once i had access to the streams, the focus shifted into making decisions:
+      how to reliably pick the best quality, how to deal with multiple audio
+      tracks, and how to handle inconsistencies between episodes and pages.
     </p>
     <p>
       working with the media itself added another layer, especially merging
@@ -89,9 +104,8 @@
     </p>
     <p>
       at that point, the project stopped being just a script and turned into a
-      pipeline, splitting responsibilities into different parts, adding
-      retries, logging, and making the whole process more consistent and
-      resilient.
+      pipeline, splitting responsibilities into different parts, adding retries,
+      logging, and making the whole process more consistent and resilient.
     </p>
     <p>
       a lot of it came down to trial and error, breaking things, fixing them,
@@ -99,26 +113,35 @@
     </p>
   </section>
 
-  <section class="project-template__section" aria-labelledby="auto-park-how-to-use">
+  <section
+    class="project-template__section"
+    aria-labelledby="auto-park-how-to-use"
+  >
     <h2 id="auto-park-how-to-use">how to use</h2>
     <p>usage example</p>
     <ol class="mini-list">
       <li>
         generate a json file with episodes.
-        <pre class="project-template__code"><code>python south_scrapper.py</code></pre>
+        <pre
+          class="project-template__code"
+        ><code>python south_scrapper.py</code></pre>
         creates <code>all_southpark_episodes.json</code> with seasons, episodes,
         and urls.
       </li>
       <li>
         automate stream download and merge.
-        <pre class="project-template__code"><code>python autopark.py</code></pre>
+        <pre
+          class="project-template__code"
+        ><code>python autopark.py</code></pre>
         configure <code>profile_path</code> with your firefox profile. episodes
         are organized in <code>descargas/Season XX/</code>. logs are recorded in
         <code>descargas.log</code>.
       </li>
       <li>
         verify video file integrity.
-        <pre class="project-template__code"><code>python tegridy_check.py</code></pre>
+        <pre
+          class="project-template__code"
+        ><code>python tegridy_check.py</code></pre>
         prints a list of files with potential corruption issues.
       </li>
     </ol>
@@ -136,9 +159,7 @@
 
   <section class="project-template__section" aria-labelledby="auto-park-notes">
     <h2 id="auto-park-notes">notes</h2>
-    <p>
-      this project is mainly for learning and exploration.
-    </p>
+    <p>this project is mainly for learning and exploration.</p>
     <p>
       it is about understanding how streaming systems work, how browsers
       interact with them, and how to build something that can handle that
@@ -149,8 +170,8 @@
       if things change.
     </p>
     <p>
-      also, this is not meant for redistributing content, just for
-      understanding the system behind it.
+      also, this is not meant for redistributing content, just for understanding
+      the system behind it.
     </p>
 
     <p>more info on my github repo :D</p>
@@ -159,7 +180,10 @@
   <section class="project-template__section" aria-labelledby="auto-park-links">
     <h2 id="auto-park-links">links</h2>
     <div class="project-links-badges">
-      <a href="https://github.com/onlymikey/auto-park" target="_blank" rel="noopener noreferrer"
+      <a
+        href="https://github.com/onlymikey/auto-park"
+        target="_blank"
+        rel="noopener noreferrer"
         ><img
           src="/assets/public/projects/stack-badges/github.svg"
           alt="GitHub badge"
