@@ -1,0 +1,18 @@
+/* sitemap.css — simple sitemap layout */
+
+.sitemap-page h1 {
+  margin: 0 0 8px;
+}
+
+.sitemap-page > p {
+  margin: 0 0 12px;
+}
+
+.sitemap-page h2 {
+  margin: 12px 0 6px;
+  font-size: 1rem;
+}
+
+.sitemap-page .mini-list {
+  margin-bottom: 10px;
+}

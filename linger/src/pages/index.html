@@ -12,12 +12,8 @@ permalink: /
   {% include "partials/about.html" %}
 </section>
 
-<section class="panel window">
-  <div id="feed-container">
-    {% include "partials/feed.html" %}
-  </div>
-</section>
+<div id="feed-container">
+  {% include "partials/feed.html" %}
+</div>
 
-<section class="panel window">
-  {% include "partials/guestbook.html" %}
-</section>
+{% include "partials/guestbook.html" %}

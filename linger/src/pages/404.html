@@ -1,0 +1,55 @@
+---
+layout: layouts/wip.html
+title: 404 Not Found
+permalink: /404.html
+---
+
+<div class="wip-card wip-card--404">
+  <div class="wip-card__gifs" aria-hidden="true">
+    <img
+      id="notfound-gif"
+      src="/assets/icons/sillycat.gif"
+      alt=""
+      class="wip-card__gif"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+
+  <h1 class="wip-card__title">404 - page not found</h1>
+  <p class="wip-card__text">
+    this page does not exist (yet).
+  </p>
+  <a href="/" class="wip-card__home-link">go home</a>
+</div>
+
+<script>
+  (function init404Gif() {
+    var gifEl = document.getElementById("notfound-gif");
+    if (!gifEl) return;
+
+    var gifs = [
+      "/assets/public/ralkris.gif",
+      "/assets/public/deltarune-undertale.gif",
+      "/assets/public/jesus-free-ps2.gif",
+      "/assets/public/luigiandbaby.gif",
+      "/assets/public/martinsugar2k.gif",
+      "/assets/public/miyabi.gif",
+      "/assets/public/mrpenis.gif",
+      "/assets/public/pikmin.gif",
+      "/assets/public/pikmin-dancing.gif",
+      "/assets/public/pikminfunny.gif",
+      "/assets/public/pomni.gif",
+    ];
+
+    var randomGif = gifs[Math.floor(Math.random() * gifs.length)];
+    gifEl.src = randomGif;
+
+    if (randomGif.includes('jesus-free-ps2')) {
+      gifEl.style.cursor = 'pointer';
+      gifEl.addEventListener('click', function() {
+        window.open('https://youtu.be/AjVCr6GMfw4?si=-gTLFpOkQJfnfL-J&t=359', '_blank', 'noopener,noreferrer');
+      });
+    }
+  })();
+</script>

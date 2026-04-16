@@ -1,0 +1,195 @@
+<article class="project-template">
+  <header class="project-template__hero">
+    <h1>auto-park</h1>
+    <p>
+      Educational project that explores how to automate collecting episode
+      metadata from the southpark.lat website, work with video and audio
+      streams, and validate media files using tools like python, selenium,
+      beautifulsoup, and ffmpeg.
+    </p>
+  </header>
+
+  <section
+    class="project-template__section"
+    aria-labelledby="auto-park-context"
+  >
+    <h2 id="auto-park-context">context</h2>
+    <p>
+      this started from a simple curiosity: if a video plays in the browser,
+      then the data behind it must already be accessible somewhere.
+    </p>
+    <p>
+      while exploring the southpark.lat site, i noticed how everything was being
+      delivered through streaming, with separate video and audio tracks,
+      adaptive quality, and structured requests happening in the background.
+    </p>
+    <p>
+      at first it was just about understanding what was going on, how the site
+      organized episodes, how metadata was exposed, and how the player
+      interacted with the underlying streams.
+    </p>
+    <p>
+      that curiosity slowly turned into something more intentional: figuring out
+      how to automate the whole process in a way that made sense, not just
+      downloading content, but actually understanding how the system worked end
+      to end.
+    </p>
+  </section>
+
+  <section
+    class="project-template__section"
+    aria-labelledby="auto-park-what-it-does"
+  >
+    <h2 id="auto-park-what-it-does">what it does</h2>
+    <p>it automates the whole process of working with streaming content.</p>
+    <p>
+      it collects episode metadata, captures the actual stream sources from the
+      browser, selects the best available quality, downloads video and audio
+      separately, merges everything, and validates the final files so they do
+      not end up broken.
+    </p>
+  </section>
+
+  <section
+    class="project-template__section"
+    aria-labelledby="auto-park-features"
+  >
+    <h2 id="auto-park-features">features</h2>
+    <ul class="mini-list">
+      <li>
+        builds a full dataset of episodes using the site's own internal
+        structure
+      </li>
+      <li>captures real .m3u8 streams directly from network traffic</li>
+      <li>selects the best quality stream without relying on ui labels</li>
+      <li>downloads video and multiple audio tracks separately</li>
+      <li>merges everything into a single file with proper language tracks</li>
+      <li>validates files to make sure they are actually usable</li>
+      <li>retries automatically when something fails</li>
+    </ul>
+  </section>
+
+  <section
+    class="project-template__section"
+    aria-labelledby="auto-park-visuals"
+  >
+    <h2 id="auto-park-visuals">visuals</h2>
+    <div class="project-visuals-grid"></div>
+  </section>
+
+  <section
+    class="project-template__section"
+    aria-labelledby="auto-park-process"
+  >
+    <h2 id="auto-park-process">process</h2>
+    <p>
+      i started by manually inspecting network requests, looking through the
+      browser devtools to find where the video actually came from, which led me
+      to .m3u8 streams and how they were structured.
+    </p>
+    <p>
+      from there, i moved into automating the browser using selenium, triggering
+      playback and capturing requests automatically instead of doing everything
+      by hand.
+    </p>
+    <p>
+      once i had access to the streams, the focus shifted into making decisions:
+      how to reliably pick the best quality, how to deal with multiple audio
+      tracks, and how to handle inconsistencies between episodes and pages.
+    </p>
+    <p>
+      working with the media itself added another layer, especially merging
+      video and audio correctly and making sure the output was actually valid,
+      which led to using ffmpeg and building validation checks.
+    </p>
+    <p>
+      at that point, the project stopped being just a script and turned into a
+      pipeline, splitting responsibilities into different parts, adding retries,
+      logging, and making the whole process more consistent and resilient.
+    </p>
+    <p>
+      a lot of it came down to trial and error, breaking things, fixing them,
+      and slowly building something that worked reliably across different cases.
+    </p>
+  </section>
+
+  <section
+    class="project-template__section"
+    aria-labelledby="auto-park-how-to-use"
+  >
+    <h2 id="auto-park-how-to-use">how to use</h2>
+    <p>usage example</p>
+    <ol class="mini-list">
+      <li>
+        generate a json file with episodes.
+        <pre
+          class="project-template__code"
+        ><code>python south_scrapper.py</code></pre>
+        creates <code>all_southpark_episodes.json</code> with seasons, episodes,
+        and urls.
+      </li>
+      <li>
+        automate stream download and merge.
+        <pre
+          class="project-template__code"
+        ><code>python autopark.py</code></pre>
+        configure <code>profile_path</code> with your firefox profile. episodes
+        are organized in <code>descargas/Season XX/</code>. logs are recorded in
+        <code>descargas.log</code>.
+      </li>
+      <li>
+        verify video file integrity.
+        <pre
+          class="project-template__code"
+        ><code>python tegridy_check.py</code></pre>
+        prints a list of files with potential corruption issues.
+      </li>
+    </ol>
+  </section>
+
+  <section class="project-template__section" aria-labelledby="auto-park-stack">
+    <h2 id="auto-park-stack">stack</h2>
+    <ul class="mini-list">
+      <li>python</li>
+      <li>selenium + selenium wire</li>
+      <li>beautifulsoup</li>
+      <li>ffmpeg / ffprobe</li>
+    </ul>
+  </section>
+
+  <section class="project-template__section" aria-labelledby="auto-park-notes">
+    <h2 id="auto-park-notes">notes</h2>
+    <p>this project is mainly for learning and exploration.</p>
+    <p>
+      it is about understanding how streaming systems work, how browsers
+      interact with them, and how to build something that can handle that
+      process reliably.
+    </p>
+    <p>
+      it depends heavily on how the target site is implemented, so it can break
+      if things change.
+    </p>
+    <p>
+      also, this is not meant for redistributing content, just for understanding
+      the system behind it.
+    </p>
+
+    <p>more info on my github repo :D</p>
+  </section>
+
+  <section class="project-template__section" aria-labelledby="auto-park-links">
+    <h2 id="auto-park-links">links</h2>
+    <div class="project-links-badges">
+      <a
+        href="https://github.com/onlymikey/auto-park"
+        target="_blank"
+        rel="noopener noreferrer"
+        ><img
+          src="/assets/public/projects/stack-badges/github.svg"
+          alt="GitHub badge"
+          loading="lazy"
+          decoding="async"
+      /></a>
+    </div>
+  </section>
+</article>
