@@ -66,8 +66,8 @@ legend.widget__title {
   padding-top: 6px;
 }
 
-/* keep changelog widget compact: show only the 8 most recent entries */
-fieldset[aria-label="Changelog widget"] > .widget__body:nth-of-type(n + 9){
+/* keep changelog widget compact in sidebar: show only the 8 most recent entries */
+.sidebar-left fieldset[aria-label="Changelog widget"] > .widget__body:nth-of-type(n + 9){
   display: none;
 }
 

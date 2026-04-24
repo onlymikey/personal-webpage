@@ -1,0 +1,40 @@
+/* changelog.css */
+
+.changelog-page {
+  width: 100%;
+}
+
+.changelog-page > h1 {
+  margin: 0 0 8px;
+}
+
+.changelog-page__intro {
+  margin: 0 0 10px;
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+  color: var(--c-ink-2);
+}
+
+.changelog-list {
+  display: grid;
+  gap: 8px;
+}
+
+.changelog-entry {
+  border: 1px dashed var(--c-stitch);
+  border-radius: 12px;
+  background: var(--c-paper);
+  padding: 10px 12px;
+}
+
+.changelog-entry p {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.changelog-entry time {
+  font-weight: 700;
+  color: var(--c-ink-2);
+}
